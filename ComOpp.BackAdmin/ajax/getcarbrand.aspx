@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getcarbrand.aspx.cs" Inherits="ComOpp.BackAdmin.ajax.getcarbrand" %>

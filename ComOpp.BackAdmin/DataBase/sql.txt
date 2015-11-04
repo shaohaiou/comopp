@@ -1,0 +1,122 @@
+
+CREATE TABLE [dbo].[ComOpp_AdminUser](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL DEFAULT '',
+	[Password] [nvarchar](50) NOT NULL DEFAULT '',
+	[LastLoginIP] [nvarchar](50) NOT NULL DEFAULT '',
+	[LastLoginTime] [datetime] NULL,
+	[Administrator] [bit] NOT NULL DEFAULT 0,
+	[PropertyNames] [nvarchar](max) NULL DEFAULT '',
+	[PropertyValues] [nvarchar](max) NULL DEFAULT '',
+	[UserRole] [smallint] NOT NULL DEFAULT 0,
+ CONSTRAINT [PK_ComOpp_AdminUser] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+CREATE TABLE [dbo].[ComOpp_EventLog](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Uniquekey] [nvarchar](100) NOT NULL DEFAULT '',
+	[EventType] [tinyint] NOT NULL DEFAULT 0,
+	[EventID] [int] NOT NULL DEFAULT 0,
+	[Message] NVARCHAR(MAX) NOT NULL DEFAULT '',
+	[Category] [nvarchar](50) NOT NULL DEFAULT '',
+	[MachineName] [nvarchar](50) NOT NULL DEFAULT '',
+	[ApplicationName] [nvarchar](50) NOT NULL DEFAULT '',
+	[ApplicationID] [int] NOT NULL DEFAULT 0,
+	[AppType] [tinyint] NOT NULL DEFAULT 0,
+	[EntryID] [int] NOT NULL DEFAULT 0,
+	[PCount] [int] NOT NULL DEFAULT 0,
+	[LastUpdateTime] [datetime] NOT NULL DEFAULT GETDATE(),
+ CONSTRAINT [PK_ComOpp_EventLog] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+GO
+
+
+CREATE    PROCEDURE [dbo].[RecordFromPage]
+(
+    @Columns NVARCHAR(500),         --数据库中相关表表列
+    @TbNames  NVARCHAR(200),        --数据库中相关表表名
+    @WhereCondition NVARCHAR(1500), --Where条件语句,不含有Where关键字
+    @OrderColumns NVARCHAR(350),    --排序列名称,支持多列排序,例如ORDER BY column1,column2但是语句中不能还有ORDER BY关键字
+    @KeyWord NVARCHAR(100),         --很关键,可以是上述数据库表列的一个列名,主要用于按某一列排序,建议开始使用时是主键列名
+    @CurrentPageIndex INT,          --当前分页页面数,如果程序是第一次使用则该值为1
+    @PageSize INT,                  --程序需求每页显示的数据条数
+    @TotalRecords INT OUTPUT        --数据库中总的记录数量
+)
+AS
+SET NOCOUNT ON
+--------设置WHERE条件--------
+BEGIN
+DECLARE @WHERE NVARCHAR(2000)
+DECLARE @OTHERWHERE NVARCHAR(2000)
+IF ISNULL(@WhereCondition,'') = ''
+   BEGIN
+     SET @WHERE = ''
+     SET @OTHERWHERE = ' WHERE '
+   END
+ELSE
+   BEGIN
+     SET @WHERE = ' WHERE ' + @WhereCondition
+     SET @OTHERWHERE = ' WHERE ' + @WhereCondition + ' AND '
+   END
+END
+--------设置ORDER BY条件--------
+BEGIN
+DECLARE @ORDERBY NVARCHAR(800)
+IF ISNULL(@OrderColumns,'') = ''
+   SET @ORDERBY = ''
+ELSE
+   BEGIN
+        SET @ORDERBY = ' ORDER BY ' + @OrderColumns
+   END
+END
+--------计算分页页面数量和总数据条数--------
+BEGIN
+DECLARE @_PageNum NVARCHAR(1000)
+SET @_PageNum = 'SELECT @TotalRecords=COUNT(*) FROM ' + @TbNames + @WHERE
+EXEC SP_EXECUTESQL @_PageNum,N'@TotalRecords INT OUTPUT',@TotalRecords OUTPUT
+
+END
+--------现在开始实行分页--------
+BEGIN
+DECLARE @_PAGESQL NVARCHAR(4000)
+
+ 
+
+IF @CurrentPageIndex = 1
+   SET @_PAGESQL = 'SELECT TOP ' + STR(@PageSize) + ' ' + @Columns 
+                   + ' FROM ' + @TbNames + @WHERE + @ORDERBY
+ELSE
+   BEGIN
+      IF CHARINDEX('DESC',@OrderColumns) = 0
+         SET @_PAGESQL = 'SELECT TOP ' + STR(@PageSize) + ' ' + @Columns
+                         + ' FROM ' + @TbNames + @OTHERWHERE + @KeyWord
+                         + '>' + '(SELECT MAX(' + @KeyWord + ') FROM (SELECT TOP '
+                         + STR(@PageSize*(@CurrentPageIndex-1)) + ' ' + @KeyWord 
+                         + ' FROM ' + @TbNames + @WHERE + @ORDERBY + ') T)' + @ORDERBY
+      ELSE
+         SET @_PAGESQL = 'SELECT TOP ' + STR(@PageSize) + ' ' + @Columns
+                         + ' FROM ' + @TbNames + @OTHERWHERE + @KeyWord
+                         + '<' + '(SELECT MIN(' + @KeyWord + ') FROM (SELECT TOP '
+                         + STR(@PageSize*(@CurrentPageIndex-1)) + ' ' + @KeyWord 
+                         + ' FROM ' + @TbNames + @WHERE + @ORDERBY + ') T)' + @ORDERBY
+   END
+PRINT @_PAGESQL
+  EXEC(@_PAGESQL)
+END
+
+
+
+GO
+
+

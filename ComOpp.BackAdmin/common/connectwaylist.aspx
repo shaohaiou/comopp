@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="connectwaylist.aspx.cs" Inherits="ComOpp.BackAdmin.common.connectwaylist" %>

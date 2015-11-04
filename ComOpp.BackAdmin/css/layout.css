@@ -1,0 +1,115 @@
+﻿/****
+创建人：wyl 
+创建时间：20140711 
+修改时间：20140712
+******************/
+a{ 
+	text-decoration:none;
+}
+.layout_btn{
+	display:inline-block;
+	text-align:center;
+	color:white;
+}
+.west_btn{
+	width:12px;
+	height:62px;
+	line-height:62px;
+	-moz-border-radius: 0 5px 5px 0;
+    -webkit-border-radius: 0 5px 5px 0;
+	border-radius:0 5px 5px 0;
+	position:absolute;
+
+	top:50%;
+	right:-12px;
+
+	overflow:hidden;
+	background:url(../images/layout/layout_w_btn.jpg) no-repeat;
+}
+.north_btn{
+	width:62px;
+	height:12px;
+	line-height:12px;
+	-moz-border-radius: 0 0px 5px 5px;
+  -webkit-border-radius: 0 0px 5px 5px;
+	border-radius:0 0 5px 5px;
+	position:absolute;
+	bottom:-12px;
+	*bottom:0px;
+	z-index:9;
+	left:50%;
+	overflow:hidden;
+	background:url(../images/layout/layout_n_btn.jpg) no-repeat;
+}
+
+.layout-expand-over {
+  background-color: none;
+}
+/**************************west*********************************/
+body .layout-split-west{
+	overflow:visible !important;	
+	border-right: 1px solid #2AB6AA ;
+}
+
+body .layout-expand-west{
+	overflow:visible;
+	width:1px !important;
+	background:none;
+}
+body .layout-expand-west .panel-header{
+	border:0;
+	padding:0px;
+	width:12px;
+	height:62px;
+	right:-12px;
+	_right:0px;
+	overflow:visible;
+}
+body .layout-expand-west .panel-header .panel-tool{
+	position: absolute;
+	top: 0;
+	width:12px;
+	height:62px;
+	right:0px;
+	overflow:visible;
+	margin:0;
+}
+body .layout-expand-west .panel-header .panel-tool a {
+    display: inline-block;
+    width: 12px;
+    height: 62px;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	margin:0;
+	overflow:hidden;
+}
+
+.layout-button-right{
+	-moz-border-radius: 0 5px 5px 0 ;
+    -webkit-border-radius: 0 5px 5px 0;
+	border-radius:0 5px 5px 0;
+    background:url(../images/layout/layout_w_btn.jpg) no-repeat;
+	background-position:-12px 0px;
+}
+body .layout-expand-west .panel-body{
+	border:0px;
+}
+
+body .layout-expand-west .panel-header .panel-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: none;
+  -moz-border-radius: 0 5px 5px 0 ;
+  -webkit-border-radius: 0 5px 5px 0;
+  border-radius:0 5px 5px 0;
+}
+
+/***************************center****************************/
+
+body .layout-panel-center .panel-body{
+	overflow:hidden;	
+}
+.layout_box{
+	width:100%;
+	overflow:hidden;
+}

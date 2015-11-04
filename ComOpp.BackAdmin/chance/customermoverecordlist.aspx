@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customermoverecordlist.aspx.cs" Inherits="ComOpp.BackAdmin.chance.customermoverecordlist" %>

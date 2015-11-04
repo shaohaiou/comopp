@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="talklist.aspx.cs" Inherits="ComOpp.BackAdmin.support.talklist" %>

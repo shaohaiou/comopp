@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="paymentwaylist.aspx.cs" Inherits="ComOpp.BackAdmin.common.paymentwaylist" %>

@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73EDA7C9-541D-4049-A786-F291530CABA9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComOpp.BackAdmin</RootNamespace>
+    <AssemblyName>ComOpp.BackAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI">
+      <HintPath>..\ComOpp.Tools\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\ComOpp.Tools\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\ComOpp.Tools\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\ComOpp.Tools\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\adminedit.aspx" />
+    <Content Include="admin\adminlist.aspx" />
+    <Content Include="admin\adminmg.aspx" />
+    <Content Include="ajax\getcarbrand.aspx" />
+    <Content Include="ajax\getcarseriesbybrand.aspx" />
+    <Content Include="ajax\getdistrict.aspx" />
+    <Content Include="ajax\getpowergroupbycorp.aspx" />
+    <Content Include="ajax\getsearchlist.aspx" />
+    <Content Include="center\profile.aspx" />
+    <Content Include="center\safe.aspx" />
+    <Content Include="chance\archivemerge.aspx" />
+    <Content Include="chance\chanceedit.aspx" />
+    <Content Include="chance\chancefollowadd.aspx" />
+    <Content Include="chance\chancefollowcalllist.aspx" />
+    <Content Include="chance\chancefollowlist.aspx" />
+    <Content Include="chance\chancelist.aspx" />
+    <Content Include="chance\chancemg.aspx" />
+    <Content Include="chance\checkmg.aspx" />
+    <Content Include="chance\customermoverecordlist.aspx" />
+    <Content Include="chance\excel.aspx" />
+    <Content Include="chance\export.aspx" />
+    <Content Include="chance\followlist.aspx" />
+    <Content Include="chance\followmg.aspx" />
+    <Content Include="chance\import.aspx" />
+    <Content Include="chance\potentialmg.aspx" />
+    <Content Include="common\archivesetting.aspx" />
+    <Content Include="common\basesetting.aspx" />
+    <Content Include="common\connectwayedit.aspx" />
+    <Content Include="common\connectwaylist.aspx" />
+    <Content Include="common\connectwaymg.aspx" />
+    <Content Include="common\customerleveledit.aspx" />
+    <Content Include="common\customerlevellist.aspx" />
+    <Content Include="common\customerlevelmg.aspx" />
+    <Content Include="common\giveupcauseedit.aspx" />
+    <Content Include="common\giveupcauselist.aspx" />
+    <Content Include="common\giveupcausemg.aspx" />
+    <Content Include="common\ibuytimeedit.aspx" />
+    <Content Include="common\ibuytimelist.aspx" />
+    <Content Include="common\ibuytimemg.aspx" />
+    <Content Include="common\infosourceedit.aspx" />
+    <Content Include="common\infosourcelist.aspx" />
+    <Content Include="common\infosourcemg.aspx" />
+    <Content Include="common\infotypeedit.aspx" />
+    <Content Include="common\infotypelist.aspx" />
+    <Content Include="common\infotypemg.aspx" />
+    <Content Include="chance\multmove.aspx" />
+    <Content Include="common\paymentwayedit.aspx" />
+    <Content Include="common\paymentwaylist.aspx" />
+    <Content Include="common\paymentwaymg.aspx" />
+    <Content Include="common\talklist.aspx" />
+    <Content Include="common\talkpage.aspx" />
+    <Content Include="common\talktag.aspx" />
+    <Content Include="common\tracktagedit.aspx" />
+    <Content Include="common\tracktaglist.aspx" />
+    <Content Include="common\tracktagmg.aspx" />
+    <Content Include="css\common.css" />
+    <Content Include="css\mycommon.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="desktop.aspx" />
+    <Content Include="images\border-left-shadow.png" />
+    <Content Include="images\border-right-shadow.png" />
+    <Content Include="images\bubble_ic.png" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\dd_icon.jpg" />
+    <Content Include="images\diy_list.png" />
+    <Content Include="images\female.png" />
+    <Content Include="images\layout\layout_w_btn.jpg" />
+    <Content Include="images\left_icon.png" />
+    <Content Include="images\litx_01.png" />
+    <Content Include="images\litx_02.png" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\l_icon.png" />
+    <Content Include="images\male.png" />
+    <Content Include="images\operate.png" />
+    <Content Include="images\search_icon.png" />
+    <Content Include="images\search_s.png" />
+    <Content Include="images\validform_ic.png" />
+    <Content Include="images\xl.gif" />
+    <Content Include="js\common.js" />
+    <Content Include="js\cpccommon.js" />
+    <Content Include="js\cpcdriver.js" />
+    <Content Include="js\cpcparam.js" />
+    <Content Include="js\highcharts.js" />
+    <Content Include="js\jquery.idTabs.min.js" />
+    <Content Include="js\layout.js" />
+    <Content Include="js\public.core.js" />
+    <Content Include="message.aspx" />
+    <Content Include="plugins\jquery-easyui-1.3.6\datagrid-detailview.js" />
+    <Content Include="plugins\jquery-easyui-1.3.6\easyui-lang-zh_CN.js" />
+    <Content Include="plugins\jquery-easyui-1.3.6\jquery.easyui.min.js" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\easyui.css" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\blank.gif" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\calendar_arrows.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\combo_arrow.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\datagrid_icons01.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\datagrid_icons02.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\datebox_arrow.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\loading.gif" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\messager_icons.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\pagination_icons.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\default\images\spinner_arrows.png" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\icon.css" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="js\ajaxupload.js" />
+    <Content Include="js\jquery-1.8.2.min.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="js\Validform_v5.3.js" />
+    <Content Include="login.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="plugins\jquery-easyui-1.3.6\themes\icons\tool_icon.png" />
+    <Content Include="support\noticeedit.aspx" />
+    <Content Include="support\noticelist.aspx" />
+    <Content Include="support\noticemg.aspx" />
+    <Content Include="support\noticeview.aspx" />
+    <Content Include="support\talkedit.aspx" />
+    <Content Include="support\talklist.aspx" />
+    <Content Include="support\talkmg.aspx" />
+    <Content Include="system\carbrandedit.aspx" />
+    <Content Include="system\carbrandlist.aspx" />
+    <Content Include="system\carbrandmg.aspx" />
+    <Content Include="system\carmodeledit.aspx" />
+    <Content Include="system\carmodellist.aspx" />
+    <Content Include="system\carmodelmg.aspx" />
+    <Content Include="system\carseriesedit.aspx" />
+    <Content Include="system\carserieslist.aspx" />
+    <Content Include="system\carseriesmg.aspx" />
+    <Content Include="system\corporationedit.aspx" />
+    <Content Include="system\corporationlist.aspx" />
+    <Content Include="system\corporationmg.aspx" />
+    <Content Include="system\moduleedit.aspx" />
+    <Content Include="system\modulelist.aspx" />
+    <Content Include="system\modulemg.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\emotion.css" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\emotion.js" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\0.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\bface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\cface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\fface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\tface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\wface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\emotion\images\yface.gif" />
+    <Content Include="umeditor1_2_2\dialogs\formula\formula.css" />
+    <Content Include="umeditor1_2_2\dialogs\formula\formula.html" />
+    <Content Include="umeditor1_2_2\dialogs\formula\formula.js" />
+    <Content Include="umeditor1_2_2\dialogs\formula\images\formula.png" />
+    <Content Include="umeditor1_2_2\dialogs\image\image.css" />
+    <Content Include="umeditor1_2_2\dialogs\image\image.js" />
+    <Content Include="umeditor1_2_2\dialogs\image\images\close.png" />
+    <Content Include="umeditor1_2_2\dialogs\image\images\upload1.png" />
+    <Content Include="umeditor1_2_2\dialogs\image\images\upload2.png" />
+    <Content Include="umeditor1_2_2\dialogs\link\link.js" />
+    <Content Include="umeditor1_2_2\dialogs\map\map.html" />
+    <Content Include="umeditor1_2_2\dialogs\map\map.js" />
+    <Content Include="umeditor1_2_2\dialogs\video\images\center_focus.jpg" />
+    <Content Include="umeditor1_2_2\dialogs\video\images\left_focus.jpg" />
+    <Content Include="umeditor1_2_2\dialogs\video\images\none_focus.jpg" />
+    <Content Include="umeditor1_2_2\dialogs\video\images\right_focus.jpg" />
+    <Content Include="umeditor1_2_2\dialogs\video\video.css" />
+    <Content Include="umeditor1_2_2\dialogs\video\video.js" />
+    <Content Include="umeditor1_2_2\index.html" />
+    <Content Include="umeditor1_2_2\lang\en\en.js" />
+    <Content Include="umeditor1_2_2\lang\en\images\addimage.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\background.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\button.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\copy.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\deletedisable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\deleteenable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\imglabel.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\listbackground.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\localimage.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\music.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\rotateleftdisable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\rotateleftenable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\rotaterightdisable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\rotaterightenable.png" />
+    <Content Include="umeditor1_2_2\lang\en\images\upload.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\images\copy.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\images\imglabel.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\images\localimage.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\images\music.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\images\upload.png" />
+    <Content Include="umeditor1_2_2\lang\zh-cn\zh-cn.js" />
+    <Content Include="umeditor1_2_2\themes\default\css\umeditor.css" />
+    <Content Include="umeditor1_2_2\themes\default\css\umeditor.min.css" />
+    <Content Include="umeditor1_2_2\themes\default\images\caret.png" />
+    <Content Include="umeditor1_2_2\themes\default\images\close.png" />
+    <Content Include="umeditor1_2_2\themes\default\images\icons.gif" />
+    <Content Include="umeditor1_2_2\themes\default\images\icons.png" />
+    <Content Include="umeditor1_2_2\themes\default\images\ok.gif" />
+    <Content Include="umeditor1_2_2\themes\default\images\pop-bg.png" />
+    <Content Include="umeditor1_2_2\themes\default\images\spacer.gif" />
+    <Content Include="umeditor1_2_2\themes\default\images\videologo.gif" />
+    <Content Include="umeditor1_2_2\third-party\jquery.min.js" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\mathquill.css" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\mathquill.js" />
+    <Content Include="umeditor1_2_2\third-party\mathquill\mathquill.min.js" />
+    <Content Include="umeditor1_2_2\umeditor.config.js" />
+    <Content Include="umeditor1_2_2\umeditor.js" />
+    <Content Include="umeditor1_2_2\umeditor.min.js" />
+    <Content Include="user\powergroupedit.aspx" />
+    <Content Include="user\powergrouplist.aspx" />
+    <Content Include="user\powergroupmg.aspx" />
+    <Content Include="user\useredit.aspx" />
+    <Content Include="user\userlist.aspx" />
+    <Content Include="user\usermg.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\adminedit.aspx.cs">
+      <DependentUpon>adminedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminedit.aspx.designer.cs">
+      <DependentUpon>adminedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adminlist.aspx.cs">
+      <DependentUpon>adminlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminlist.aspx.designer.cs">
+      <DependentUpon>adminlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\adminmg.aspx.cs">
+      <DependentUpon>adminmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\adminmg.aspx.designer.cs">
+      <DependentUpon>adminmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getcarbrand.aspx.cs">
+      <DependentUpon>getcarbrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\getcarbrand.aspx.designer.cs">
+      <DependentUpon>getcarbrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getcarseriesbybrand.aspx.cs">
+      <DependentUpon>getcarseriesbybrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\getcarseriesbybrand.aspx.designer.cs">
+      <DependentUpon>getcarseriesbybrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getdistrict.aspx.cs">
+      <DependentUpon>getdistrict.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\getdistrict.aspx.designer.cs">
+      <DependentUpon>getdistrict.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getpowergroupbycorp.aspx.cs">
+      <DependentUpon>getpowergroupbycorp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\getpowergroupbycorp.aspx.designer.cs">
+      <DependentUpon>getpowergroupbycorp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getsearchlist.aspx.cs">
+      <DependentUpon>getsearchlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\getsearchlist.aspx.designer.cs">
+      <DependentUpon>getsearchlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="center\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="center\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="center\safe.aspx.cs">
+      <DependentUpon>safe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="center\safe.aspx.designer.cs">
+      <DependentUpon>safe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\archivemerge.aspx.cs">
+      <DependentUpon>archivemerge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\archivemerge.aspx.designer.cs">
+      <DependentUpon>archivemerge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chanceedit.aspx.cs">
+      <DependentUpon>chanceedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chanceedit.aspx.designer.cs">
+      <DependentUpon>chanceedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chancefollowadd.aspx.cs">
+      <DependentUpon>chancefollowadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chancefollowadd.aspx.designer.cs">
+      <DependentUpon>chancefollowadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chancefollowcalllist.aspx.cs">
+      <DependentUpon>chancefollowcalllist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chancefollowcalllist.aspx.designer.cs">
+      <DependentUpon>chancefollowcalllist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chancefollowlist.aspx.cs">
+      <DependentUpon>chancefollowlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chancefollowlist.aspx.designer.cs">
+      <DependentUpon>chancefollowlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chancelist.aspx.cs">
+      <DependentUpon>chancelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chancelist.aspx.designer.cs">
+      <DependentUpon>chancelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\chancemg.aspx.cs">
+      <DependentUpon>chancemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\chancemg.aspx.designer.cs">
+      <DependentUpon>chancemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\checkmg.aspx.cs">
+      <DependentUpon>checkmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\checkmg.aspx.designer.cs">
+      <DependentUpon>checkmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\customermoverecordlist.aspx.cs">
+      <DependentUpon>customermoverecordlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\customermoverecordlist.aspx.designer.cs">
+      <DependentUpon>customermoverecordlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\excel.aspx.cs">
+      <DependentUpon>excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\excel.aspx.designer.cs">
+      <DependentUpon>excel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\export.aspx.cs">
+      <DependentUpon>export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\export.aspx.designer.cs">
+      <DependentUpon>export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\followlist.aspx.cs">
+      <DependentUpon>followlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\followlist.aspx.designer.cs">
+      <DependentUpon>followlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\followmg.aspx.cs">
+      <DependentUpon>followmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\followmg.aspx.designer.cs">
+      <DependentUpon>followmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\import.aspx.cs">
+      <DependentUpon>import.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\import.aspx.designer.cs">
+      <DependentUpon>import.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\potentialmg.aspx.cs">
+      <DependentUpon>potentialmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\potentialmg.aspx.designer.cs">
+      <DependentUpon>potentialmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\archivesetting.aspx.cs">
+      <DependentUpon>archivesetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\archivesetting.aspx.designer.cs">
+      <DependentUpon>archivesetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\basesetting.aspx.cs">
+      <DependentUpon>basesetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\basesetting.aspx.designer.cs">
+      <DependentUpon>basesetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\connectwayedit.aspx.cs">
+      <DependentUpon>connectwayedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\connectwayedit.aspx.designer.cs">
+      <DependentUpon>connectwayedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\connectwaylist.aspx.cs">
+      <DependentUpon>connectwaylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\connectwaylist.aspx.designer.cs">
+      <DependentUpon>connectwaylist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\connectwaymg.aspx.cs">
+      <DependentUpon>connectwaymg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\connectwaymg.aspx.designer.cs">
+      <DependentUpon>connectwaymg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\customerleveledit.aspx.cs">
+      <DependentUpon>customerleveledit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\customerleveledit.aspx.designer.cs">
+      <DependentUpon>customerleveledit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\customerlevellist.aspx.cs">
+      <DependentUpon>customerlevellist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\customerlevellist.aspx.designer.cs">
+      <DependentUpon>customerlevellist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\customerlevelmg.aspx.cs">
+      <DependentUpon>customerlevelmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\customerlevelmg.aspx.designer.cs">
+      <DependentUpon>customerlevelmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\giveupcauseedit.aspx.cs">
+      <DependentUpon>giveupcauseedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\giveupcauseedit.aspx.designer.cs">
+      <DependentUpon>giveupcauseedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\giveupcauselist.aspx.cs">
+      <DependentUpon>giveupcauselist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\giveupcauselist.aspx.designer.cs">
+      <DependentUpon>giveupcauselist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\giveupcausemg.aspx.cs">
+      <DependentUpon>giveupcausemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\giveupcausemg.aspx.designer.cs">
+      <DependentUpon>giveupcausemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\ibuytimeedit.aspx.cs">
+      <DependentUpon>ibuytimeedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\ibuytimeedit.aspx.designer.cs">
+      <DependentUpon>ibuytimeedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\ibuytimelist.aspx.cs">
+      <DependentUpon>ibuytimelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\ibuytimelist.aspx.designer.cs">
+      <DependentUpon>ibuytimelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\ibuytimemg.aspx.cs">
+      <DependentUpon>ibuytimemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\ibuytimemg.aspx.designer.cs">
+      <DependentUpon>ibuytimemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infosourceedit.aspx.cs">
+      <DependentUpon>infosourceedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infosourceedit.aspx.designer.cs">
+      <DependentUpon>infosourceedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infosourcelist.aspx.cs">
+      <DependentUpon>infosourcelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infosourcelist.aspx.designer.cs">
+      <DependentUpon>infosourcelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infosourcemg.aspx.cs">
+      <DependentUpon>infosourcemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infosourcemg.aspx.designer.cs">
+      <DependentUpon>infosourcemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infotypeedit.aspx.cs">
+      <DependentUpon>infotypeedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infotypeedit.aspx.designer.cs">
+      <DependentUpon>infotypeedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infotypelist.aspx.cs">
+      <DependentUpon>infotypelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infotypelist.aspx.designer.cs">
+      <DependentUpon>infotypelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\infotypemg.aspx.cs">
+      <DependentUpon>infotypemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\infotypemg.aspx.designer.cs">
+      <DependentUpon>infotypemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chance\multmove.aspx.cs">
+      <DependentUpon>multmove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chance\multmove.aspx.designer.cs">
+      <DependentUpon>multmove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\paymentwayedit.aspx.cs">
+      <DependentUpon>paymentwayedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\paymentwayedit.aspx.designer.cs">
+      <DependentUpon>paymentwayedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\paymentwaylist.aspx.cs">
+      <DependentUpon>paymentwaylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\paymentwaylist.aspx.designer.cs">
+      <DependentUpon>paymentwaylist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\paymentwaymg.aspx.cs">
+      <DependentUpon>paymentwaymg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\paymentwaymg.aspx.designer.cs">
+      <DependentUpon>paymentwaymg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\talklist.aspx.cs">
+      <DependentUpon>talklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\talklist.aspx.designer.cs">
+      <DependentUpon>talklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\talkpage.aspx.cs">
+      <DependentUpon>talkpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\talkpage.aspx.designer.cs">
+      <DependentUpon>talkpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\talktag.aspx.cs">
+      <DependentUpon>talktag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\talktag.aspx.designer.cs">
+      <DependentUpon>talktag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\tracktagedit.aspx.cs">
+      <DependentUpon>tracktagedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\tracktagedit.aspx.designer.cs">
+      <DependentUpon>tracktagedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\tracktaglist.aspx.cs">
+      <DependentUpon>tracktaglist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\tracktaglist.aspx.designer.cs">
+      <DependentUpon>tracktaglist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\tracktagmg.aspx.cs">
+      <DependentUpon>tracktagmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\tracktagmg.aspx.designer.cs">
+      <DependentUpon>tracktagmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="desktop.aspx.cs">
+      <DependentUpon>desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="desktop.aspx.designer.cs">
+      <DependentUpon>desktop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="message.aspx.cs">
+      <DependentUpon>message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="message.aspx.designer.cs">
+      <DependentUpon>message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="support\noticeedit.aspx.cs">
+      <DependentUpon>noticeedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\noticeedit.aspx.designer.cs">
+      <DependentUpon>noticeedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\noticelist.aspx.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\noticelist.aspx.designer.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\noticemg.aspx.cs">
+      <DependentUpon>noticemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\noticemg.aspx.designer.cs">
+      <DependentUpon>noticemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\noticeview.aspx.cs">
+      <DependentUpon>noticeview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\noticeview.aspx.designer.cs">
+      <DependentUpon>noticeview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\talkedit.aspx.cs">
+      <DependentUpon>talkedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\talkedit.aspx.designer.cs">
+      <DependentUpon>talkedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\talklist.aspx.cs">
+      <DependentUpon>talklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\talklist.aspx.designer.cs">
+      <DependentUpon>talklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="support\talkmg.aspx.cs">
+      <DependentUpon>talkmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="support\talkmg.aspx.designer.cs">
+      <DependentUpon>talkmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carbrandedit.aspx.cs">
+      <DependentUpon>carbrandedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carbrandedit.aspx.designer.cs">
+      <DependentUpon>carbrandedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carbrandlist.aspx.cs">
+      <DependentUpon>carbrandlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carbrandlist.aspx.designer.cs">
+      <DependentUpon>carbrandlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carbrandmg.aspx.cs">
+      <DependentUpon>carbrandmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carbrandmg.aspx.designer.cs">
+      <DependentUpon>carbrandmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carmodeledit.aspx.cs">
+      <DependentUpon>carmodeledit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carmodeledit.aspx.designer.cs">
+      <DependentUpon>carmodeledit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carmodellist.aspx.cs">
+      <DependentUpon>carmodellist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carmodellist.aspx.designer.cs">
+      <DependentUpon>carmodellist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carmodelmg.aspx.cs">
+      <DependentUpon>carmodelmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carmodelmg.aspx.designer.cs">
+      <DependentUpon>carmodelmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carseriesedit.aspx.cs">
+      <DependentUpon>carseriesedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carseriesedit.aspx.designer.cs">
+      <DependentUpon>carseriesedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carserieslist.aspx.cs">
+      <DependentUpon>carserieslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carserieslist.aspx.designer.cs">
+      <DependentUpon>carserieslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\carseriesmg.aspx.cs">
+      <DependentUpon>carseriesmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\carseriesmg.aspx.designer.cs">
+      <DependentUpon>carseriesmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\corporationedit.aspx.cs">
+      <DependentUpon>corporationedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\corporationedit.aspx.designer.cs">
+      <DependentUpon>corporationedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\corporationlist.aspx.cs">
+      <DependentUpon>corporationlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\corporationlist.aspx.designer.cs">
+      <DependentUpon>corporationlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\corporationmg.aspx.cs">
+      <DependentUpon>corporationmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\corporationmg.aspx.designer.cs">
+      <DependentUpon>corporationmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\moduleedit.aspx.cs">
+      <DependentUpon>moduleedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\moduleedit.aspx.designer.cs">
+      <DependentUpon>moduleedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\modulelist.aspx.cs">
+      <DependentUpon>modulelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\modulelist.aspx.designer.cs">
+      <DependentUpon>modulelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\modulemg.aspx.cs">
+      <DependentUpon>modulemg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\modulemg.aspx.designer.cs">
+      <DependentUpon>modulemg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="umeditor1_2_2\net\Uploader.cs" />
+    <Compile Include="user\powergroupedit.aspx.cs">
+      <DependentUpon>powergroupedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\powergroupedit.aspx.designer.cs">
+      <DependentUpon>powergroupedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\powergrouplist.aspx.cs">
+      <DependentUpon>powergrouplist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\powergrouplist.aspx.designer.cs">
+      <DependentUpon>powergrouplist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\powergroupmg.aspx.cs">
+      <DependentUpon>powergroupmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\powergroupmg.aspx.designer.cs">
+      <DependentUpon>powergroupmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\useredit.aspx.cs">
+      <DependentUpon>useredit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\useredit.aspx.designer.cs">
+      <DependentUpon>useredit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\userlist.aspx.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\userlist.aspx.designer.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\usermg.aspx.cs">
+      <DependentUpon>usermg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\usermg.aspx.designer.cs">
+      <DependentUpon>usermg.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="analyse\" />
+    <Folder Include="att\" />
+    <Folder Include="DataBase\" />
+    <Folder Include="index\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComOpp.Components\ComOpp.Components.csproj">
+      <Project>{DF8CDB72-0514-44EE-9128-4D2E37193F5A}</Project>
+      <Name>ComOpp.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComOpp.DALSQLServer\ComOpp.DALSQLServer.csproj">
+      <Project>{BC16B7DE-FDAF-4676-BDA1-3B57576A666E}</Project>
+      <Name>ComOpp.DALSQLServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComOpp.TaskAndJob\ComOpp.TaskAndJob.csproj">
+      <Project>{67316A46-C3AD-4F40-B9A8-F67D3CB55D90}</Project>
+      <Name>ComOpp.TaskAndJob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComOpp.Tools\ComOpp.Tools.csproj">
+      <Project>{FE8E5701-2524-4BB8-9ED1-92D4F079257D}</Project>
+      <Name>ComOpp.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\common.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="umeditor1_2_2\net\getContent.ashx" />
+    <Content Include="umeditor1_2_2\net\imageUp.ashx" />
+    <None Include="App_Data\archive.xls" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\Symbola.eot" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\Symbola.otf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\Symbola.ttf" />
+    <None Include="umeditor1_2_2\third-party\mathquill\font\Symbola.woff" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51543</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

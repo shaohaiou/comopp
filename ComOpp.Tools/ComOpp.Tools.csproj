@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE8E5701-2524-4BB8-9ED1-92D4F079257D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComOpp.Tools</RootNamespace>
+    <AssemblyName>ComOpp.Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSharpAPIs.cs" />
+    <Compile Include="CustomIdentity.cs" />
+    <Compile Include="DataConvert.cs" />
+    <Compile Include="DynamicWebServices.cs" />
+    <Compile Include="EncryptString.cs" />
+    <Compile Include="Enum\TimeUnits.cs" />
+    <Compile Include="ExpLog.cs" />
+    <Compile Include="ExtensionMethods\EnumExtensions.cs" />
+    <Compile Include="ImageHelp.cs" />
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="MouseKeyboardLibrary\GlobalHook.cs" />
+    <Compile Include="MouseKeyboardLibrary\KeyboardHook.cs" />
+    <Compile Include="MouseKeyboardLibrary\MouseHook.cs" />
+    <Compile Include="MouseKeyboardLibrary\MousePoint.cs" />
+    <Compile Include="MouseKeyboardLibrary\StandardShortcut.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializerHelper\ExtendedAttributes.cs" />
+    <Compile Include="SerializerHelper\Serializer.cs" />
+    <Compile Include="StrHelper.cs" />
+    <Compile Include="UserPrincipal.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ValidationCode\Cracker.cs" />
+    <Compile Include="ValidationCode\NeuralNet.cs" />
+    <Compile Include="ValidationCode\ValidationImage.cs" />
+    <Compile Include="Web\Http.cs" />
+    <Compile Include="Web\ManageCookies.cs" />
+    <Compile Include="Web\WebHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\AspNetPager.dll" />
+    <Content Include="Lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Lib\IrisSkin4.dll" />
+    <Content Include="Lib\Newtonsoft.Json.dll" />
+    <Content Include="Lib\NPOI.dll" />
+    <Content Include="Lib\NPOI.OOXML.dll" />
+    <Content Include="Lib\NPOI.OOXML.XML" />
+    <Content Include="Lib\NPOI.OpenXml4Net.dll" />
+    <Content Include="Lib\NPOI.OpenXml4Net.XML" />
+    <Content Include="Lib\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Lib\NPOI.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\Skins\Calmness.ssk" />
+    <None Include="Lib\Skins\CalmnessColor1.ssk" />
+    <None Include="Lib\Skins\CalmnessColor2.ssk" />
+    <None Include="Lib\Skins\DeepCyan.ssk" />
+    <None Include="Lib\Skins\DeepGreen.ssk" />
+    <None Include="Lib\Skins\DeepOrange.ssk" />
+    <None Include="Lib\Skins\DiamondBlue.ssk" />
+    <None Include="Lib\Skins\DiamondGreen.ssk" />
+    <None Include="Lib\Skins\DiamondOlive.ssk" />
+    <None Include="Lib\Skins\DiamondPurple.ssk" />
+    <None Include="Lib\Skins\DiamondRed.ssk" />
+    <None Include="Lib\Skins\Eighteen.ssk" />
+    <None Include="Lib\Skins\EighteenColor1.ssk" />
+    <None Include="Lib\Skins\EighteenColor2.ssk" />
+    <None Include="Lib\Skins\Emerald.ssk" />
+    <None Include="Lib\Skins\EmeraldColor1.ssk" />
+    <None Include="Lib\Skins\EmeraldColor2.ssk" />
+    <None Include="Lib\Skins\EmeraldColor3.ssk" />
+    <None Include="Lib\Skins\GlassBrown.ssk" />
+    <None Include="Lib\Skins\GlassGreen.ssk" />
+    <None Include="Lib\Skins\GlassOrange.ssk" />
+    <None Include="Lib\Skins\Longhorn.ssk" />
+    <None Include="Lib\Skins\MacOS.ssk" />
+    <None Include="Lib\Skins\Midsummer.ssk" />
+    <None Include="Lib\Skins\MidsummerColor1.ssk" />
+    <None Include="Lib\Skins\MidsummerColor2.ssk" />
+    <None Include="Lib\Skins\MidsummerColor3.ssk" />
+    <None Include="Lib\Skins\mp10.ssk" />
+    <None Include="Lib\Skins\mp10green.ssk" />
+    <None Include="Lib\Skins\mp10maroon.ssk" />
+    <None Include="Lib\Skins\mp10mulberry.ssk" />
+    <None Include="Lib\Skins\mp10pink.ssk" />
+    <None Include="Lib\Skins\mp10purple.ssk" />
+    <None Include="Lib\Skins\MSN.ssk" />
+    <None Include="Lib\Skins\office2007.ssk" />
+    <None Include="Lib\Skins\OneBlue.ssk" />
+    <None Include="Lib\Skins\OneCyan.ssk" />
+    <None Include="Lib\Skins\OneGreen.ssk" />
+    <None Include="Lib\Skins\OneOrange.ssk" />
+    <None Include="Lib\Skins\Page.ssk" />
+    <None Include="Lib\Skins\PageColor1.ssk" />
+    <None Include="Lib\Skins\PageColor2.ssk" />
+    <None Include="Lib\Skins\RealOne.ssk" />
+    <None Include="Lib\Skins\Silver.ssk" />
+    <None Include="Lib\Skins\SilverColor1.ssk" />
+    <None Include="Lib\Skins\SilverColor2.ssk" />
+    <None Include="Lib\Skins\SportsBlack.ssk" />
+    <None Include="Lib\Skins\SportsBlue.ssk" />
+    <None Include="Lib\Skins\SportsCyan.ssk" />
+    <None Include="Lib\Skins\SportsGreen.ssk" />
+    <None Include="Lib\Skins\SportsOrange.ssk" />
+    <None Include="Lib\Skins\SteelBlack.ssk" />
+    <None Include="Lib\Skins\SteelBlue.ssk" />
+    <None Include="Lib\Skins\vista1.ssk" />
+    <None Include="Lib\Skins\vista1_green.ssk" />
+    <None Include="Lib\Skins\Vista2_color1.ssk" />
+    <None Include="Lib\Skins\Vista2_color2.ssk" />
+    <None Include="Lib\Skins\Vista2_color3.ssk" />
+    <None Include="Lib\Skins\Vista2_color4.ssk" />
+    <None Include="Lib\Skins\Vista2_color5.ssk" />
+    <None Include="Lib\Skins\Vista2_color6.ssk" />
+    <None Include="Lib\Skins\Vista2_color7.ssk" />
+    <None Include="Lib\Skins\Warm.ssk" />
+    <None Include="Lib\Skins\WarmColor1.ssk" />
+    <None Include="Lib\Skins\WarmColor2.ssk" />
+    <None Include="Lib\Skins\WarmColor3.ssk" />
+    <None Include="Lib\Skins\Wave.ssk" />
+    <None Include="Lib\Skins\WaveColor1.ssk" />
+    <None Include="Lib\Skins\WaveColor2.ssk" />
+    <None Include="Lib\Skins\XPBlue.ssk" />
+    <None Include="Lib\Skins\XPGreen.ssk" />
+    <None Include="Lib\Skins\XPOrange.ssk" />
+    <None Include="Lib\Skins\XPSilver.ssk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

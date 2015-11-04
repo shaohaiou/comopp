@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customerlevellist.aspx.cs" Inherits="ComOpp.BackAdmin.common.customerlevellist" %>

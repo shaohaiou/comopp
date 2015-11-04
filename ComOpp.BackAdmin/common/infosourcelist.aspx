@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="infosourcelist.aspx.cs" Inherits="ComOpp.BackAdmin.common.infosourcelist" %>

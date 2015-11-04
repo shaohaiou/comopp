@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ibuytimelist.aspx.cs" Inherits="ComOpp.BackAdmin.common.ibuytimelist" %>

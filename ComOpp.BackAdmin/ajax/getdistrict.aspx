@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="getdistrict.aspx.cs" Inherits="ComOpp.BackAdmin.ajax.getdistrict" %>
