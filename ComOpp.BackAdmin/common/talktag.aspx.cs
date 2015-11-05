@@ -17,6 +17,10 @@ namespace ComOpp.BackAdmin.common
                 Response.Redirect("~/login.aspx");
                 return;
             }
+            if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员 && !CheckGroupPower(Admin.GroupPower, "话术列表"))
+            {
+                WriteMessage("/message.aspx", "系统提示", "没有权限！", "", "/index.aspx");
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

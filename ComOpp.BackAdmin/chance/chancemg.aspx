@@ -542,7 +542,7 @@
                     case "2":
                         Tool.bar = ['<a onclick="Core.Easyui.Action(\'state\',this);" data-key="3">提交至到店|洽谈</a>', '<a onclick="Core.Easyui.Action(\'state\',this);" data-key="4">提交至追踪|促成</a>', '<a onclick="Core.Easyui.Action(\'state\',this);" data-key="<%=Offcheck==1?21:31 %>">转出(提交至潜客数据库)</a>', '<a onclick="Core.Easyui.Action(\'state\',this);" data-key="32">战败(商谈终止)</a>']; Tool.width = 496;
                         if (!Core.Easyui.Params.Archive($(o).attr('data-posttime'),<%=Voluntaryoffday %>)) { Tool.bar.baoremove(2); Tool.width -= 154; }
-                        Tool.bar.baoremove(1); Tool.width -= 113;
+                        <%if(IsProcess){ %>Tool.bar.baoremove(1); Tool.width -= 113;<%} %>
                         break;
                     case "3": 
                         Tool.bar = ['<a onclick="Core.Easyui.Action(\'state\',this);" data-key="2">未到店(提交至清洗|邀约)</a>', '<a onclick="Core.Easyui.Action(\'state\',this);" data-key="4">已到店(提交至追踪|促成)</a>']; Tool.width = 331; 

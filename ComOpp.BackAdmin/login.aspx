@@ -63,8 +63,7 @@
             </div>
         </div>
         <p class="copystyle">
-            红旭集团商机管理系统 V1.0 Powered by <a href="http://www.hongxu.cn">www.hongxu.cn</a>
-        2015-2020
+            红旭集团商机管理系统 V1.0 Powered by <a href="http://www.hongxu.cn">www.hongxu.cn</a> 2015-2020
     </div>
 </body>
 </html>

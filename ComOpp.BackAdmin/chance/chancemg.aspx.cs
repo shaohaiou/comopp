@@ -36,6 +36,15 @@ namespace ComOpp.BackAdmin.chance
             }
         }
 
+        public bool IsProcess
+        {
+            get
+            {
+                if (CurrentCorporation == null) return false;
+                else return CurrentCorporation.IsProcess == 1;
+            }
+        }
+
         public int Forcedoffday 
         {
             get

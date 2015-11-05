@@ -1720,6 +1720,17 @@ namespace ComOpp.DALSQLServer
             SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, p);
         }
 
+        public override void SetCustomerLevel(int id, int level)
+        {
+            string sql = "UPDATE ComOpp_Customer SET [CustomerLevelID] = @CustomerLevelID WHERE [ID] = @ID";
+            SqlParameter[] p = 
+            { 
+                new SqlParameter("@CustomerLevelID",level),
+                new SqlParameter("@ID",id)
+            };
+            SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, p);
+        }
+
         public override CustomerInfo GetCustomerByPhone(string phone)
         {
             CustomerInfo result = null;

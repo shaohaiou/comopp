@@ -266,6 +266,9 @@ namespace ComOpp.Components
 
         private static bool hasruncustomerforcedout = false;
 
+        /// <summary>
+        /// 每天凌晨2点1分开始执行
+        /// </summary>
         public void CustomerForcedout()
         {
             if (DateTime.Now.Hour == 2 && DateTime.Now.Minute == 1)
@@ -331,6 +334,93 @@ namespace ComOpp.Components
             }
             else
                 hasruncustomerforcedout = false;
+        }
+
+        #endregion
+
+        #region 客户等级降级
+
+        public void SetCustomerLevel(int id,int level)
+        {
+            CommonDataProvider.Instance().SetCustomerLevel(id, level);
+        }
+
+        private static bool hasruncustomerdegrade = false;
+
+        /// <summary>
+        /// 客户降级(每天凌晨1点1分开始执行)
+        /// </summary>
+        public void CustomerDegrade()
+        {
+            if (DateTime.Now.Hour == 1 && DateTime.Now.Minute == 1)
+            {
+                if (!hasruncustomerdegrade)
+                {
+                    try
+                    {
+                        List<CorporationInfo> list = Corporations.Instance.GetList(true);
+                        foreach (CorporationInfo corpinfo in list)
+                        {
+                            bool hasdeeldata = false;
+                            List<CustomerInfo> clist = GetCustomerListByCorporation(corpinfo.ID, true);
+                            List<CustomerLevelInfo> levellist = CustomerLevels.Instance.GetListByCorpid(corpinfo.ID, true);
+
+                            foreach (CustomerInfo cinfo in clist)
+                            {
+                                if (cinfo.LastCustomerLevelID > 0)
+                                {
+                                    CustomerLevelInfo level = CustomerLevels.Instance.GetModel(cinfo.LastCustomerLevelID,true);
+                                    InfoTypeInfo infotype = InfoTypes.Instance.GetModel(cinfo.InfoTypeID);
+
+                                    //如果已经是最低一级则不处理
+                                    if (levellist.FindIndex(l => l.ID == cinfo.LastCustomerLevelID) == levellist.Count - 1)
+                                        continue;
+
+                                    if (level != null && level.Drtday > 0)
+                                    {
+                                        DateTime lastconnecttime = DateTime.Now;
+                                        if(DateTime.TryParse(cinfo.LastConnectTime,out lastconnecttime))
+                                        {
+                                            if(infotype != null && infotype.Locked == 1)
+                                            {
+                                                double days = DateTime.Now.Subtract(lastconnecttime).TotalDays;
+                                                //锁定级别判断
+                                                if (infotype.Locklevel.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Contains(level.ID.ToString()))
+                                                {
+                                                    if (days <= infotype.Lockday)
+                                                        continue;
+                                                }
+
+                                                //做降级处理
+                                                if (days > level.Drtday)
+                                                {
+                                                    SetCustomerLevel(cinfo.ID, levellist[levellist.FindIndex(l => l.ID == cinfo.LastCustomerLevelID) + 1].ID);
+
+                                                    hasdeeldata = true;
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (hasdeeldata)
+                                ReloadCustomerListByCorporationCache(corpinfo.ID);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ExpLog.Write(ex);
+                    }
+                    finally
+                    {
+                        hasruncustomerdegrade = true;
+                    }
+                }
+            }
+            else
+                hasruncustomerdegrade = false;
         }
 
         #endregion

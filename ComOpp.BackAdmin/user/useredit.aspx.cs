@@ -140,7 +140,11 @@ namespace ComOpp.BackAdmin.user
             FillData(entity);
 
             if (id > 0) Admins.Instance.UpdateAdmin(entity);
-            else Admins.Instance.AddAdmin(entity);
+            else
+            {
+                Admins.Instance.AddAdmin(entity);
+                PowerGroups.Instance.ReloadPowerGroupListCache();
+            }
 
             Response.Redirect(string.IsNullOrEmpty(FromUrl) ? "adminmg.aspx" : FromUrl);
         }

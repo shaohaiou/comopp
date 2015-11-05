@@ -743,6 +743,8 @@ namespace ComOpp.Components
 
         public abstract List<CustomerInfo> GetCustomerListByCorporation(int cid);
 
+        public abstract void SetCustomerLevel(int id, int level);
+
         public static CustomerInfo PopulateCustomerInfo(IDataReader reader)
         {
             CustomerInfo entity = new CustomerInfo()

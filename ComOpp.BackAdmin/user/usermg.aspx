@@ -32,14 +32,14 @@
                 onclick="Core.Easyui.Action('remove');">删除</a>
             <%} %>
         </div>
-        <form runat="server" onsubmit="Core.Easyui.Form();return false;">
+        <form runat="server" onsubmit="return Core.Easyui.Form();">
         <div class="schlist">
             <div style="padding-top: 1px;">
                 <%if (Admin.Administrator)
                   {%>
                 <label>
                     所属公司：</label>
-                <asp:DropDownList runat="server" ID="ddlCorporationSearch" AutoPostBack="true">
+                <asp:DropDownList runat="server" ID="ddlCorporationSearch">
                 </asp:DropDownList>
                 <%}else{ %>
                 <label>
@@ -105,8 +105,9 @@
             var p = { 
             'keywords':$("#txtKeywords").val(),
             'state': $("#ddlState option:selected").val(),
-            'powergroup':$("#ddlPowerGroup option:selected").val()};
+            'powergroup':$("#ddlPowerGroupSearch option:selected").val()};
             Core.Easyui.get("/user/userlist.aspx?corpid=" + corpid + "&keywords=" + p.keywords + "&state=" + p.state + "&powergroup=" + p.powergroup);
+            return false;
         }
         Core.Easyui.Action = function (method,o) {
             var rows = $('#datagrid').datagrid('getSelections');
@@ -131,6 +132,13 @@
         }
         $(document).ready(function () {
             Core.Easyui.get("/user/userlist.aspx?corpid=" + corpid);
+
+            $("#ddlCorporationSearch").change(function(){
+                corpid = $("#ddlCorporationSearch option:selected").val();
+                $("#txtKeywords").val("");
+                $("#ddlState").val(0);
+                Core.Easyui.get("/user/userlist.aspx?corpid=" + corpid);
+            });
         })
     </script>
     <script type="text/javascript">

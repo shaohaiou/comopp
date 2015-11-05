@@ -92,7 +92,7 @@
                     </dd>
                     <!--<dt data-key="analyse/index/callcenter/connect"><i class="l icon5">
                     </i>分析报表</dt>-->
-                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "话术列表,话术管理"))
+                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "话术管理"))
                           { %>
                     <dt data-key="support/talkmg.aspx"><i class="l icon6"></i>话术管理</dt>
                     <%} %>

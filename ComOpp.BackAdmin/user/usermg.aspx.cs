@@ -73,6 +73,9 @@ namespace ComOpp.BackAdmin.user
                 ddlCorporationSearch.DataValueField = "ID";
                 ddlCorporationSearch.DataBind();
 
+                if (GetInt("corpid") > 0)
+                    SetSelectedByValue(ddlCorporationSearch, GetString("corpid"));
+
                 if (!Admin.Administrator)
                 {
                     List<PowerGroupInfo> plist = PowerGroups.Instance.GetList(true);

@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -129,6 +130,7 @@
     <Content Include="images\dd_icon.jpg" />
     <Content Include="images\diy_list.png" />
     <Content Include="images\female.png" />
+    <Content Include="images\hstabBg.png" />
     <Content Include="images\layout\layout_w_btn.jpg" />
     <Content Include="images\left_icon.png" />
     <Content Include="images\litx_01.png" />
@@ -136,10 +138,12 @@
     <Content Include="images\logo.jpg" />
     <Content Include="images\l_icon.png" />
     <Content Include="images\male.png" />
+    <Content Include="images\m_icon.png" />
     <Content Include="images\operate.png" />
     <Content Include="images\search_icon.png" />
     <Content Include="images\search_s.png" />
     <Content Include="images\validform_ic.png" />
+    <Content Include="images\x2.gif" />
     <Content Include="images\xl.gif" />
     <Content Include="js\common.js" />
     <Content Include="js\cpccommon.js" />
@@ -922,8 +926,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="analyse\" />
-    <Folder Include="att\" />
-    <Folder Include="DataBase\" />
     <Folder Include="index\" />
   </ItemGroup>
   <ItemGroup>
