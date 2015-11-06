@@ -111,6 +111,11 @@
                         <p>
                             <a href="common/basesetting.aspx" target="riframe">基础数据</a></p>
                             <%} %>
+                        <%if (Admin.Administrator)
+                          {%>
+                        <p>
+                            <a href="system/logmg.aspx" target="riframe">日志管理</a></p>
+                            <%} %>
                     </dd>
                     <%} %>
                         <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "账户组") || CheckGroupPower(Admin.GroupPower, "账户管理"))

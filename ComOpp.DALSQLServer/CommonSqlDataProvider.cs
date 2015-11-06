@@ -355,7 +355,33 @@ namespace ComOpp.DALSQLServer
         {
             try
             {
-                string sql = "ComOpp_AddEvent";
+                string sql = @"INSERT INTO ComOpp_EventLog(
+                [Uniquekey]
+                ,[EventType]
+                ,[EventID]
+                ,[Message]
+                ,[Category]
+                ,[MachineName]
+                ,[ApplicationName]
+                ,[ApplicationID]
+                ,[AppType]
+                ,[EntryID]
+                ,[PCount]
+                ,[LastUpdateTime]
+                )VALUES(
+                @Uniquekey
+                ,@EventType
+                ,@EventID
+                ,@Message
+                ,@Category
+                ,@MachineName
+                ,@ApplicationName
+                ,@ApplicationID
+                ,@AppType
+                ,@EntryID
+                ,@PCount
+                ,@LastUpdateTime
+                )";
                 SqlParameter[] parameters = 
                     {
                         new SqlParameter("@Uniquekey", log.Uniquekey),
@@ -371,7 +397,7 @@ namespace ComOpp.DALSQLServer
                         new SqlParameter("@PCount",log.PCount),
                         new SqlParameter("@LastUpdateTime",log.LastUpdateTime)
                     };
-                SqlHelper.ExecuteNonQuery(_con, CommandType.StoredProcedure, sql, parameters);
+                SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, parameters);
             }
             catch { }
         }
@@ -413,6 +439,25 @@ namespace ComOpp.DALSQLServer
                 total = eventlist.Count();
             }
             return eventlist;
+        }
+
+        public override EventLogEntry GetEventLogModel(int id)
+        {
+            EventLogEntry entity = null;
+            string sql = "SELECT * FROM ComOpp_EventLog WHERE [ID] = @ID";
+            SqlParameter[] p = 
+            {
+                new SqlParameter("@ID",id)
+            };
+            using (IDataReader reader = SqlHelper.ExecuteReader(_con,CommandType.Text,sql,p))
+            {
+                if (reader.Read())
+                {
+                    entity =PopulateEventLogEntry(reader);
+                }
+            }
+
+            return entity;
         }
         #endregion
 

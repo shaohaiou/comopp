@@ -245,6 +245,7 @@ namespace ComOpp.Components
                 {
                     try
                     {
+                        EventLogs.JobLog("开始作业-车型数据采集");
                         bool hasnewdata = false;
                         string urlBrand = "http://sales.new4s.com/ajax/brand/1/";
                         string urlSeries = "http://sales.new4s.com/ajax/brand/3/{0}/";
@@ -330,9 +331,11 @@ namespace ComOpp.Components
                             ReloadCarSeriesListCache();
                             ReloadCarModelListCache();
                         }
+                        EventLogs.JobLog("完成作业-车型数据采集");
                     }
                     catch (Exception ex)
                     {
+                        EventLogs.JobError("作业发生错误-车型数据采集", 0, 0, ex);
                         ExpLog.Write(ex);
                     }
                     finally

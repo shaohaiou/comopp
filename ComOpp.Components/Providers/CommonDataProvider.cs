@@ -226,6 +226,7 @@ namespace ComOpp.Components
 
         public abstract List<EventLogEntry> GetEventLogs(int pageindex, int pagesize, EventLogQuery query, out int total);
 
+        public abstract EventLogEntry GetEventLogModel(int id);
 
         /// <summary>
         /// 填充日志信息

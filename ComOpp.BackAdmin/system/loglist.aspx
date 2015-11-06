@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="loglist.aspx.cs" Inherits="ComOpp.BackAdmin.system.loglist" %>

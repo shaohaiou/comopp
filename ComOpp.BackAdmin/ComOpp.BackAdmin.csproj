@@ -197,6 +197,9 @@
     <Content Include="system\corporationedit.aspx" />
     <Content Include="system\corporationlist.aspx" />
     <Content Include="system\corporationmg.aspx" />
+    <Content Include="system\logdetail.aspx" />
+    <Content Include="system\loglist.aspx" />
+    <Content Include="system\logmg.aspx" />
     <Content Include="system\moduleedit.aspx" />
     <Content Include="system\modulelist.aspx" />
     <Content Include="system\modulemg.aspx" />
@@ -851,6 +854,27 @@
     </Compile>
     <Compile Include="system\corporationmg.aspx.designer.cs">
       <DependentUpon>corporationmg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\logdetail.aspx.cs">
+      <DependentUpon>logdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\logdetail.aspx.designer.cs">
+      <DependentUpon>logdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\loglist.aspx.cs">
+      <DependentUpon>loglist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\loglist.aspx.designer.cs">
+      <DependentUpon>loglist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="system\logmg.aspx.cs">
+      <DependentUpon>logmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="system\logmg.aspx.designer.cs">
+      <DependentUpon>logmg.aspx</DependentUpon>
     </Compile>
     <Compile Include="system\moduleedit.aspx.cs">
       <DependentUpon>moduleedit.aspx</DependentUpon>

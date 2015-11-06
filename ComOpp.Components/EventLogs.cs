@@ -18,6 +18,11 @@ namespace ComOpp.Components
             return CommonDataProvider.Instance().GetEventLogs(pageindex, pagesize, query, out total);
         }
 
+        public static EventLogEntry GetModel(int id)
+        {
+            return CommonDataProvider.Instance().GetEventLogModel(id);
+        }
+
         #region  全局变量
 
         /// <summary>
@@ -213,7 +218,7 @@ namespace ComOpp.Components
             {
                 entry.ApplicationID = DataConvert.SafeInt(config.AppSetting["ApplicationID"]);
             }
-            //Write(entry);
+            Write(entry);
         }
 
         #endregion

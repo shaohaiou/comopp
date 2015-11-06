@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using Newtonsoft.Json;
 using ComOpp.Components;
+using ComOpp.Tools;
 
 namespace ComOpp.Components
 {
@@ -32,17 +33,26 @@ namespace ComOpp.Components
         /// <summary>
         /// 信息
         /// </summary>
-        [JsonProperty("message")]
+        [JsonIgnore]
         public string Message
         {
             get;
             set;
         }
 
+        [JsonProperty("message")]
+        public string MessageShort
+        {
+            get
+            {
+                return StrHelper.GetSubString(Message, 100, "...");
+            }
+        }
+
         /// <summary>
         /// 机器名
         /// </summary>
-        [JsonProperty("machinename")]
+        [JsonIgnore]
         public string MachineName
         {
             get;
@@ -52,7 +62,7 @@ namespace ComOpp.Components
         /// <summary>
         /// 分类
         /// </summary>
-        [JsonProperty("category")]
+        [JsonIgnore]
         public string Category
         {
             get;
@@ -62,7 +72,7 @@ namespace ComOpp.Components
         /// <summary>
         /// 实体ID
         /// </summary>
-        [JsonProperty("entryid")]
+        [JsonProperty("id")]
         public int EntryID
         {
             get;
@@ -82,47 +92,65 @@ namespace ComOpp.Components
         /// <summary>
         /// 事件日期
         /// </summary>
-        [JsonProperty("eventdate")]
+        [JsonIgnore]
         public DateTime EventDate
         {
             get;
             set;
         }
 
+        [JsonProperty("eventdate")]
+        public string EventDateString
+        {
+            get
+            {
+                return EventDate.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+        }
+
         /// <summary>
         /// 事件类型
         /// </summary>
-        [JsonProperty("eventtype")]
+        [JsonIgnore]
         public EventType EventType
         {
             get;
             set;
         }
 
+        [JsonProperty("eventtype")]
+        public string EventTypeName
+        {
+            get
+            {
+                return EnumExtensions.GetDescription<EventType>(((int)EventType).ToString());
+            }
+        }
+
         /// <summary>
         /// 应用程序名
         /// </summary>
-        [JsonProperty("applicationname")]
+        [JsonIgnore]
         public string ApplicationName { get; set; }
 
         /// <summary>
         /// 应用程序ID
         /// </summary>
-        [JsonProperty("applicationid")]
+        [JsonIgnore]
         public int ApplicationID { get; set; }
 
         /// <summary>
         /// 应用程序类型
         /// </summary>
-        [JsonProperty("applicationtype")]
+        [JsonIgnore]
         public ApplicationType ApplicationType { get; set; }
-        [JsonProperty("pcount")]
+        [JsonIgnore]
         public int PCount { get; set; }
 
-        [JsonProperty("addtime")]
+        [JsonIgnore]
         public DateTime AddTime { get; set; }
 
-        [JsonProperty("lastupdatetime")]
+        [JsonIgnore]
         public DateTime? LastUpdateTime { get; set; }
 
         /// <summary>
@@ -130,7 +158,7 @@ namespace ComOpp.Components
         /// </summary>
         public Exception Ex { get; set; }
 
-        [JsonProperty("uniquekey")]
+        [JsonIgnore]
         public string Uniquekey { get; set; }
     }
 }

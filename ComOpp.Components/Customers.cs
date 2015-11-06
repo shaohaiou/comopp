@@ -41,27 +41,39 @@ namespace ComOpp.Components
             string url = "http://v.showji.com/Locating/showji.com20150416273007.aspx?m={0}&output=json";
             Regex rprovince = new Regex("\"Province\":\"([\\s\\S]*?)\"");
             Regex rcity = new Regex("\"City\":\"([\\s\\S]*?)\"");
-            List<CustomerInfo> list = GetCustomerListForPhoneVest();
-            WebClient wc = new WebClient();
-            foreach (CustomerInfo c in list)
+            try
             {
-                try
+                List<CustomerInfo> list = GetCustomerListForPhoneVest();
+                WebClient wc = new WebClient();
+                foreach (CustomerInfo c in list)
                 {
-                    string request = Http.GetPage(string.Format(url, c.Phone));
-                    if (rprovince.IsMatch(request) && rcity.IsMatch(request))
+                    try
                     {
-                        string province = rprovince.Match(request).Groups[1].Value;
-                        string city = rcity.Match(request).Groups[1].Value;
-                        if (!string.IsNullOrEmpty(province) && !string.IsNullOrEmpty(city))
+                        string request = Http.GetPage(string.Format(url, c.Phone));
+                        if (rprovince.IsMatch(request) && rcity.IsMatch(request))
                         {
-                            c.PhoneVest = province + " " + city;
-                            UpdateCustomerPhoneVest(c);
-                            RefreshCustomerCache(c);
-                            Thread.Sleep(5000);
+                            string province = rprovince.Match(request).Groups[1].Value;
+                            string city = rcity.Match(request).Groups[1].Value;
+                            if (!string.IsNullOrEmpty(province) && !string.IsNullOrEmpty(city))
+                            {
+                                c.PhoneVest = province + " " + city;
+                                UpdateCustomerPhoneVest(c);
+                                RefreshCustomerCache(c);
+                                Thread.Sleep(5000);
+                            }
                         }
                     }
+                    catch { }
                 }
-                catch { }
+            }
+            catch (Exception ex)
+            {
+                EventLogs.JobError("作业发生错误-号码归属地采集", 0, 0, ex);
+                ExpLog.Write(ex);
+            }
+            finally
+            { 
+            
             }
         }
 
@@ -277,6 +289,7 @@ namespace ComOpp.Components
                 {
                     try
                     {
+                        EventLogs.JobLog("开始作业-线索强制转出");
                         List<CorporationInfo> list = Corporations.Instance.GetList(true);
                         foreach (CorporationInfo corpinfo in list)
                         {
@@ -321,9 +334,11 @@ namespace ComOpp.Components
                             if (listForced.Count > 0)
                                 ReloadCustomerListByCorporationCache(corpinfo.ID);
                         }
+                        EventLogs.JobLog("完成作业-线索强制转出");
                     }
                     catch (Exception ex)
                     {
+                        EventLogs.JobError("作业发生错误-线索强制转出", 0, 0, ex);
                         ExpLog.Write(ex);
                     }
                     finally
@@ -358,6 +373,7 @@ namespace ComOpp.Components
                 {
                     try
                     {
+                        EventLogs.JobLog("开始作业-客户降级");
                         List<CorporationInfo> list = Corporations.Instance.GetList(true);
                         foreach (CorporationInfo corpinfo in list)
                         {
@@ -408,9 +424,11 @@ namespace ComOpp.Components
                             if (hasdeeldata)
                                 ReloadCustomerListByCorporationCache(corpinfo.ID);
                         }
+                        EventLogs.JobLog("完成作业-客户降级");
                     }
                     catch (Exception ex)
                     {
+                        EventLogs.JobError("作业发生错误-客户降级",0,0,ex);
                         ExpLog.Write(ex);
                     }
                     finally
