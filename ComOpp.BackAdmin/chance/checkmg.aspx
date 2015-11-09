@@ -124,7 +124,7 @@
     var Time = Math.round(new Date(Date.parse(D.getFullYear() + '-' + (D.getMonth() + 1) + '-' + D.getDate())) / 1000);
     Core.Easyui.Height = 67;
     Core.Easyui.Settings = null;
-    Core.Easyui.State = { 1: "转出至潜客", 2: "转出至潜客", 4: "转出至清洗" };
+    Core.Easyui.State = { 1: "导入|集客", 2: "清洗|邀约", 3: "到店|洽谈", 4: "转出至清洗", 5: "预订|成交", 10: "提车|回访", 21: "转出待审", 31: "潜客(转出)", 32: "潜客(战败)", 33: "其他潜客" };
 </script>
 <script type="text/javascript">
     Core.Easyui.FieldColumns = [
@@ -227,7 +227,7 @@
             }
             },
             { field: 'stated', title: '线索状态', width: 100, align: 'center', formatter: function (value, row, index) {
-                return Core.Easyui.State[value] ? Core.Easyui.State[value] : '';
+                return Core.Easyui.State[row.stated] ? "<span style='color:red' title='未审核'>" + Core.Easyui.State[row.stated] + "</span>" : '';	
             }
             },
             { field: 'name', title: '客户姓名', width: 80, align: 'center' },

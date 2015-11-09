@@ -38,8 +38,40 @@ namespace ComOpp.BackAdmin.chance
             get
             {
                 if (CurrentCustomerInfo != null)
+                {
+                    if (Action == "提交到提车|回访" || Action == "编辑提车|回访" || Action == "编辑预订|成交")
+                        return CurrentCustomerInfo.SbuyCarBrandID;
                     return CurrentCustomerInfo.IbuyCarBrandID;
+                }
                 return Corporation == null ? 0 : Corporation.BrandID;
+            }
+        }
+
+        protected int CarSeriesID
+        {
+            get
+            {
+                if (CurrentCustomerInfo != null)
+                {
+                    if (Action == "提交到提车|回访" || Action == "编辑提车|回访" || Action == "编辑预订|成交")
+                        return CurrentCustomerInfo.SbuyCarSeriesID;
+                    return CurrentCustomerInfo.IbuyCarSeriesID;
+                }
+                return 0;
+            }
+        }
+
+        protected int CarModelID
+        {
+            get
+            {
+                if (CurrentCustomerInfo != null)
+                {
+                    if (Action == "提交到提车|回访" || Action == "编辑提车|回访" || Action == "编辑预订|成交")
+                        return CurrentCustomerInfo.SbuyCarModelID;
+                    return CurrentCustomerInfo.IbuyCarModelID;
+                }
+                return 0;
             }
         }
 
@@ -98,7 +130,9 @@ namespace ComOpp.BackAdmin.chance
                     int state = GetInt("state");
                     if (id > 0)
                     {
-                        if (state == (int)CustomerStatus.清洗_邀约)
+                        if (state == (int)CustomerStatus.导入_集客)
+                            action = "提交到导入|集客";
+                        else if (state == (int)CustomerStatus.清洗_邀约)
                             action = "提交到清洗|邀约";
                         else if (state == (int)CustomerStatus.到店_洽谈)
                             action = "提交到到店|洽谈";
@@ -242,6 +276,14 @@ namespace ComOpp.BackAdmin.chance
                 entity.LastUpdateUser = Admin.Realname;
                 entity.LastUpdateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                 FillData(entity);
+                if (Action == "提交到导入|集客")
+                {
+                    entity.CustomerStatusSource = entity.CustomerStatus;
+                    entity.CustomerStatus = (int)CustomerStatus.导入_集客;
+                    entity.PostTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                    entity.CheckStatus = 0;
+                    entity.LurkStatus = 0;
+                }
                 if (Action == "提交到清洗|邀约")
                 {
                     entity.CustomerStatusSource = entity.CustomerStatus;
@@ -316,7 +358,7 @@ namespace ComOpp.BackAdmin.chance
                     entity.GiveupCauseID = DataConvert.SafeInt(Request["form[giveupcause]"]);
                     entity.FailureCauseAnalyze = Request["form[failurereason]"];
                     entity.PostTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-                    entity.LurkStatus = 1;                    
+                    entity.LurkStatus = 1;
                 }
                 else if (Action == "提交到转出|待审")
                 {
@@ -326,9 +368,11 @@ namespace ComOpp.BackAdmin.chance
                 }
                 else if (Action == "提交到潜客|转出")
                 {
-                    entity.CustomerStatusSource = entity.CustomerStatus;
+                    if (entity.CustomerStatus != (int)CustomerStatus.转出待审)
+                        entity.CustomerStatusSource = entity.CustomerStatus;
                     entity.CustomerStatus = (int)CustomerStatus.潜客_转出;
                     entity.LurkStatus = 1;
+                    entity.CheckStatus = 0;
                 }
 
                 result = Customers.Instance.Update(entity);
@@ -369,7 +413,7 @@ namespace ComOpp.BackAdmin.chance
                 return "selected=\"true\"";
             else if (CurrentCustomerInfo == null && GetInt("state") > 0 && GetInt("state") == DataConvert.SafeInt(value))
                 return "selected=\"true\"";
-            else if (CurrentCustomerInfo == null && (int)CustomerStatus.清洗_邀约 == DataConvert.SafeInt(value))
+            else if (CurrentCustomerInfo == null && GetInt("state") == 0 && (int)CustomerStatus.清洗_邀约 == DataConvert.SafeInt(value))
                 return "selected=\"true\"";
 
             return result;

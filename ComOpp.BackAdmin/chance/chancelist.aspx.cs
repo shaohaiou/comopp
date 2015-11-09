@@ -76,7 +76,7 @@ namespace ComOpp.BackAdmin.chance
                         if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))
                         {
                             string[] powers = CurrentPowerGroup.CanviewGroupIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                            list = list.FindAll(l => l.OwnerPowerGroupID == Admin.PowerGroupID || powers.Contains(l.OwnerPowerGroupID.ToString()));
+                            list = list.FindAll(l => l.OwnerID == AdminID || powers.Contains(l.OwnerPowerGroupID.ToString()));
                         }
                         else
                             list = list.FindAll(l => l.OwnerID == AdminID);
@@ -91,13 +91,13 @@ namespace ComOpp.BackAdmin.chance
                             list = list.FindAll(l => l.CustomerStatusSource == (int)CustomerStatus.清洗_邀约 || l.CustomerStatusSource == (int)CustomerStatus.导入_集客);
                     }
                     if (!string.IsNullOrEmpty(customername))
-                        list = list.FindAll(l => l.Name == customername);
+                        list = list.FindAll(l => l.Name.Contains(customername));
                     if (!string.IsNullOrEmpty(customerphone))
-                        list = list.FindAll(l => l.Phone == customerphone);
+                        list = list.FindAll(l => l.Phone.Contains(customerphone));
                     if (!string.IsNullOrEmpty(weixinaccount))
-                        list = list.FindAll(l => l.WeixinAccount == weixinaccount);
+                        list = list.FindAll(l => l.WeixinAccount.Contains(weixinaccount));
                     if (!string.IsNullOrEmpty(ordernum))
-                        list = list.FindAll(l => l.OrderNumber == ordernum);
+                        list = list.FindAll(l => l.OrderNumber.Contains(ordernum));
                     if(ibuyseriesid > 0)
                         list = list.FindAll(l => l.IbuyCarSeriesID == ibuyseriesid);
                     if (customerlevelid > 0)

@@ -12,7 +12,7 @@ namespace ComOpp.BackAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cars.Instance.CollectData();
+            Customers.Instance.CustomerForcedout();
         }
     }
 }

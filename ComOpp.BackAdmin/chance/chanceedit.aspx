@@ -602,8 +602,8 @@
         });
         Core.UnionCombobox('brand', {
             "layer1": [$("#Archive-Brand"), "<%= CarBrandID %>", "../ajax/getcarbrand.aspx?t=1&id=@id", '选择车辆品牌'],
-            "layer2": [$("#Archive-Series"), "<%= CurrentCustomerInfo == null ? 0 : CurrentCustomerInfo.IbuyCarSeriesID %>", "../ajax/getcarbrand.aspx?t=2&pid=@pid", '选择汽车车系'],
-            "layer3": [$("#Archive-Spec"), "<%= CurrentCustomerInfo == null ? 0 : CurrentCustomerInfo.IbuyCarModelID %>", "../ajax/getcarbrand.aspx?t=3&pid=@pid", '请选择汽车车型']
+            "layer2": [$("#Archive-Series"), "<%= CarSeriesID %>", "../ajax/getcarbrand.aspx?t=2&pid=@pid", '选择汽车车系'],
+            "layer3": [$("#Archive-Spec"), "<%= CarModelID %>", "../ajax/getcarbrand.aspx?t=3&pid=@pid", '请选择汽车车型']
         });
 
         /*客户信息 增加线索标签选项*/

@@ -35,11 +35,13 @@
     <div data-options="region:'north',border:false" style="height: 36px; overflow: hidden;
         background: #2BB7AA">
         <div class="header">
-            <a class="sysname fl"><%if (!Admin.Administrator)
-                                    { %><%= Admin.Corporation %>｜<%} %>商机管理系统(销售)</a>
+            <a class="sysname fl">
+                <%if (!Admin.Administrator)
+                  { %><%= Admin.Corporation %>｜<%} %>商机管理系统(销售)</a>
             <ul class="litNav fr">
                 <li style="border-left: 0;"><a href="center/profile.aspx">个人中心</a></li>
-                <li><%=Admin.Realname %></li>
+                <li>
+                    <%=Admin.Realname %></li>
                 <li style="display: none"><a href="">消息<i>（1）</i></a></li>
                 <li><a href="logout.aspx">退出</a></li>
             </ul>
@@ -60,83 +62,82 @@
         <div class="layout_boxs">
             <div class="mainbav">
                 <dl id="ltree">
-                <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "公告通知管理,公告通知列表"))
-                          { %>
+                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "公告通知管理,公告通知列表"))
+                      { %>
                     <dt data-key="support/noticemg.aspx"><i class="l icon1"></i>公告通知</dt>
                     <%} %>
                     <dt><i class="r"></i><i class="l icon3"></i>商机管理</dt>
                     <dd>
                         <p>
                             <a href="chance/chancemg.aspx" target="riframe">商机管理</a></p>
-                                <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "潜客数据库"))
-                                  { %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "潜客数据库"))
+                          { %>
                         <p>
                             <a href="chance/potentialmg.aspx" target="riframe">潜客数据库</a></p>
-                            <%} %>
-                                <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "转出审核"))
-                                  { %>
+                        <%} %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "转出审核"))
+                          { %>
                         <p>
                             <a href="chance/checkmg.aspx" target="riframe">转出审核</a></p>
-                            <%} %>
-                                <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "综合查询"))
-                                  { %>
+                        <%} %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "综合查询"))
+                          { %>
                         <p>
-                            <a href="javascript:void(0);" onclick="showData('chance/archivemerge.aspx');">
-                                综合查询</a></p>
-                            <%} %>
-                                <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "追踪流水"))
-                                  { %>
+                            <a href="javascript:void(0);" onclick="showData('chance/archivemerge.aspx');">综合查询</a></p>
+                        <%} %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "追踪流水"))
+                          { %>
                         <p>
                             <a href="chance/followmg.aspx" target="riframe">追踪流水</a></p>
-                            <%} %>
+                        <%} %>
                     </dd>
                     <!--<dt data-key="analyse/index/callcenter/connect"><i class="l icon5">
                     </i>分析报表</dt>-->
                     <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "话术管理"))
-                          { %>
+                      { %>
                     <dt data-key="support/talkmg.aspx"><i class="l icon6"></i>话术管理</dt>
                     <%} %>
                     <!--<dt data-key="http://sales.new4s.com/signup/signup/index"><i class="l icon1"></i>报名窗口</dt>-->
-                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "基础数据"))
-                          { %>
+                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "基础数据"))
+                      { %>
                     <dt><i class="r"></i><i class="l icon7"></i>系统管理</dt>
                     <dd>
                         <%if (Admin.Administrator)
                           {%>
                         <p>
                             <a href="system/corporationmg.aspx" target="riframe">系统设置</a></p>
-                            <%} %>
-                            <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "基础数据"))
-                              { %>
+                        <%} %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "基础数据"))
+                          { %>
                         <p>
                             <a href="common/basesetting.aspx" target="riframe">基础数据</a></p>
-                            <%} %>
+                        <%} %>
                         <%if (Admin.Administrator)
                           {%>
                         <p>
                             <a href="system/logmg.aspx" target="riframe">日志管理</a></p>
-                            <%} %>
+                        <%} %>
                     </dd>
                     <%} %>
-                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "账户组") || CheckGroupPower(Admin.GroupPower, "账户管理"))
-                          { %>
+                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "账户组") || CheckGroupPower(Admin.GroupPower, "账户管理"))
+                      { %>
                     <dt><i class="r"></i><i class="l icon8"></i>用户管理</dt>
                     <dd>
                         <%if (Admin.Administrator)
                           {%>
                         <p>
                             <a href="admin/adminmg.aspx" target="riframe">管理员管理</a></p>
-                            <%} %>
+                        <%} %>
                         <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "账户组"))
                           { %>
                         <p>
                             <a href="user/powergroupmg.aspx" target="riframe">账户组</a></p>
-                            <%} %>
+                        <%} %>
                         <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "账户管理"))
                           { %>
                         <p>
                             <a href="user/usermg.aspx" target="riframe">账户管理</a></p>
-                            <%} %>
+                        <%} %>
                     </dd>
                     <%} %>
                 </dl>

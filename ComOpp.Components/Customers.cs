@@ -68,7 +68,7 @@ namespace ComOpp.Components
             }
             catch (Exception ex)
             {
-                EventLogs.JobError("作业发生错误-号码归属地采集", 0, 0, ex);
+                EventLogs.JobError("作业发生错误-号码归属地采集", EventLogs.EVENTID_JOB_ERROR, 0, ex);
                 ExpLog.Write(ex);
             }
             finally
@@ -279,14 +279,15 @@ namespace ComOpp.Components
         private static bool hasruncustomerforcedout = false;
 
         /// <summary>
-        /// 每天凌晨2点1分开始执行
+        /// 每天凌晨2点开始执行
         /// </summary>
         public void CustomerForcedout()
         {
-            if (DateTime.Now.Hour == 2 && DateTime.Now.Minute == 1)
+            if (DateTime.Now.Hour == 2)
             {
                 if (!hasruncustomerforcedout)
                 {
+                    hasruncustomerforcedout = true;
                     try
                     {
                         EventLogs.JobLog("开始作业-线索强制转出");
@@ -338,12 +339,8 @@ namespace ComOpp.Components
                     }
                     catch (Exception ex)
                     {
-                        EventLogs.JobError("作业发生错误-线索强制转出", 0, 0, ex);
+                        EventLogs.JobError("作业发生错误-线索强制转出", EventLogs.EVENTID_JOB_ERROR, 0, ex);
                         ExpLog.Write(ex);
-                    }
-                    finally
-                    {
-                        hasruncustomerforcedout = true;
                     }
                 }
             }
@@ -363,14 +360,15 @@ namespace ComOpp.Components
         private static bool hasruncustomerdegrade = false;
 
         /// <summary>
-        /// 客户降级(每天凌晨1点1分开始执行)
+        /// 客户降级(每天凌晨1点开始执行)
         /// </summary>
         public void CustomerDegrade()
         {
-            if (DateTime.Now.Hour == 1 && DateTime.Now.Minute == 1)
+            if (DateTime.Now.Hour == 1)
             {
                 if (!hasruncustomerdegrade)
                 {
+                    hasruncustomerdegrade = true;
                     try
                     {
                         EventLogs.JobLog("开始作业-客户降级");
@@ -428,12 +426,8 @@ namespace ComOpp.Components
                     }
                     catch (Exception ex)
                     {
-                        EventLogs.JobError("作业发生错误-客户降级",0,0,ex);
+                        EventLogs.JobError("作业发生错误-客户降级", EventLogs.EVENTID_JOB_ERROR, 0, ex);
                         ExpLog.Write(ex);
-                    }
-                    finally
-                    {
-                        hasruncustomerdegrade = true;
                     }
                 }
             }

@@ -57,7 +57,7 @@
                 <label>
                     性别：</label></p>
             <p class="margin_p" style="margin-top: 15px; padding-left: 5px;">
-                <asp:RadioButtonList runat="server" ID="rblSex" RepeatDirection="Horizontal" CssClass="rbl">
+                <asp:RadioButtonList runat="server" ID="rblSex" RepeatDirection="Horizontal" CssClass="rbl" RepeatLayout="Flow">
                     <asp:ListItem Text="保密" Value="0"></asp:ListItem>
                     <asp:ListItem Text="男" Value="1"></asp:ListItem>
                     <asp:ListItem Text="女" Value="2"></asp:ListItem>

@@ -332,13 +332,15 @@ namespace ComOpp.Components
                 string key = string.Empty;
                 if (entry.EventType == EventType.Warning)
                 {
-                    key = GlobalKey.EVENTLOG_KEY + "_" + string.Format("{0}-{1}-{2}-{3}", entry.ApplicationID, entry.EntryID, entry.EventID, (int)entry.EventType);
+                    key = GlobalKey.EVENTLOG_KEY + "_" + string.Format("{0}-{1}-{2}-{3}-{4}", entry.ApplicationID, entry.EntryID, entry.EventID, (int)entry.EventType,entry.Message.GetHashCode());
                 }
                 else if (entry.EventType == EventType.Error && entry.Ex != null)
                 {
                     key = GlobalKey.EVENTLOG_KEY + "_" + string.Format("{0}-{1}-{2}-{3}-{4}-{5}", entry.ApplicationID, entry.EntryID, entry.EventID, (int)entry.EventType, entry.Ex.StackTrace.GetHashCode(), entry.Ex.Message.GetHashCode());
                     entry.Message = entry.Ex.Message + "-" + entry.Ex.StackTrace + "\r\n" + entry.Message;
                 }
+                else
+                    key = GlobalKey.EVENTLOG_KEY + "_" + string.Format("{0}-{1}", (int)entry.EventType, entry.Message.GetHashCode());
 
                 EventLogEntry oldentry = MangaCache.Get(key) as EventLogEntry;
 
@@ -369,7 +371,7 @@ namespace ComOpp.Components
             try
             {
                 EventLogEntry entry = v as EventLogEntry;
-                if (entry != null && entry.AddTime != entry.LastUpdateTime)
+                if (entry != null && entry.AddTime != entry.LastUpdateTime.Value)
                 {
                     CommConfig config = CommConfig.GetConfig();
                     CommonDataProvider.Instance().WriteEventLogEntry(entry);

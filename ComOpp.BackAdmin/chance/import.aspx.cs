@@ -162,7 +162,7 @@ namespace ComOpp.BackAdmin.chance
                 DataRow dataRow = table.NewRow();
                 for (int j = headerColIndex; j < cellCount; j++)
                 {
-                    dataRow[j - headerColIndex] = row.GetCell(j) == null ? string.Empty : (string.IsNullOrEmpty(row.GetCell(j).ToString()) ? table.Rows[table.Rows.Count - 1][j] : row.GetCell(j));
+                    dataRow[j - headerColIndex] = row.GetCell(j) == null ? string.Empty : row.GetCell(j).ToString();
                 }
                 table.Rows.Add(dataRow);
             }

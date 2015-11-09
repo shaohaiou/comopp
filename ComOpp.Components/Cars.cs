@@ -238,11 +238,12 @@ namespace ComOpp.Components
 
         public void CollectData()
         {
-            //每个月5号，凌晨3点1分，采集数据
-            if (DateTime.Now.Day == 5 && DateTime.Now.Hour == 3 && DateTime.Now.Minute == 1)
+            //每个月5号，凌晨3点，采集数据
+            if (DateTime.Now.Day == 5 && DateTime.Now.Hour == 3)
             {
                 if (!iscollected)
                 {
+                    iscollected = true;
                     try
                     {
                         EventLogs.JobLog("开始作业-车型数据采集");
@@ -335,12 +336,8 @@ namespace ComOpp.Components
                     }
                     catch (Exception ex)
                     {
-                        EventLogs.JobError("作业发生错误-车型数据采集", 0, 0, ex);
+                        EventLogs.JobError("作业发生错误-车型数据采集", EventLogs.EVENTID_JOB_ERROR, 0, ex);
                         ExpLog.Write(ex);
-                    }
-                    finally
-                    {
-                        iscollected = true;
                     }
                 }
             }
