@@ -52,24 +52,24 @@
     <script type="text/javascript">
         var type = <%=GetInt("type",-1) %>;
         Core.Easyui.Init($('#datagrid'), 99, [
-            { field: 'eventdate', title: '记录时间', width: 80, align: 'center' },
+            { field: 'eventdate', title: '记录时间', width: 130, align: 'center' },
             { field: 'eventtype', title: '事件类型', width: 80, align: 'center' },
             { field: 'message', title: '内容', align: 'left',formatter:function(value,row,index){
-                return "<a onclick='Core.Easyui.Action(\"showdetail\",this);' data-tid='" + row.id + "' class='coR00f'>" + value +"</a>";
+                return row.eventtype == '错误' ? ("<a onclick='Core.Easyui.Action(\"showdetail\",this);' data-tid='" + row.id + "' class='coR00f'>" + value +"</a>") : value;
             } }
-        ]);
+        ],{singleSelect:true});
         Core.Easyui.Form = function (o) {
             var form = $(o).parents('form');
             var p = { 
             'startime':form.find("input[name='form[starttime]']").val(),
             'endtime':form.find("input[name='form[endtime]']").val()};
-            Core.Easyui.get("/system/logmg.aspx?type=" + type + "&startime=" + form.find("input[name='form[starttime]']").val() + "&endtime=" + p.endtime);
+            Core.Easyui.get("/system/loglist.aspx?type=" + type + "&startime=" + form.find("input[name='form[starttime]']").val() + "&endtime=" + p.endtime);
             return false;
         }
         Core.Easyui.Action = function(method, o){
             switch (method) {
                 case 'showdetail':
-                    dialog('800', '900', '日志详情', "logdetail.aspx?id=" + $(o).attr("data-tid") + "&r=" + Math.random());
+                    dialog('800', '500', '日志详情', "logdetail.aspx?id=" + $(o).attr("data-tid") + "&r=" + Math.random());
                     break;
             }
         };
@@ -83,10 +83,10 @@
                 'startime':form.find("input[name='form[starttime]']").val(),
                 'endtime':form.find("input[name='form[endtime]']").val()};
                 type = $(this).attr('data-type');
-                Core.Easyui.get("/system/logmg.aspx?type=" + type + "&startime=" + form.find("input[name='form[starttime]']").val() + "&endtime=" + p.endtime);
+                Core.Easyui.get("/system/loglist.aspx?type=" + type + "&startime=" + form.find("input[name='form[starttime]']").val() + "&endtime=" + p.endtime);
             });
 
-            Core.Easyui.get("/system/logmg.aspx?type=" + type);
+            Core.Easyui.get("/system/loglist.aspx?type=" + type);
         })
     </script>
     <script type="text/javascript">

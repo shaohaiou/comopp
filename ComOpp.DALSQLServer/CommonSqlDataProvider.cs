@@ -367,6 +367,7 @@ namespace ComOpp.DALSQLServer
                 ,[AppType]
                 ,[EntryID]
                 ,[PCount]
+                ,[AddTime]
                 ,[LastUpdateTime]
                 )VALUES(
                 @Uniquekey
@@ -380,6 +381,7 @@ namespace ComOpp.DALSQLServer
                 ,@AppType
                 ,@EntryID
                 ,@PCount
+                ,@AddTime
                 ,@LastUpdateTime
                 )";
                 SqlParameter[] parameters = 
@@ -395,6 +397,7 @@ namespace ComOpp.DALSQLServer
                         new SqlParameter("@AppType",log.ApplicationType),
                         new SqlParameter("@EntryID",log.EntryID),
                         new SqlParameter("@PCount",log.PCount),
+                        new SqlParameter("@AddTime",log.AddTime),
                         new SqlParameter("@LastUpdateTime",log.LastUpdateTime)
                     };
                 SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, parameters);

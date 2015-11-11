@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="keepalive.aspx.cs" Inherits="ComOpp.BackAdmin.keepalive" %>

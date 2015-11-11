@@ -247,7 +247,6 @@ namespace ComOpp.Components
             eventlog.AddTime = DataConvert.SafeDate(reader["AddTime"]);
             eventlog.LastUpdateTime = reader["LastUpdateTime"] as DateTime?;
             eventlog.ApplicationType = (ApplicationType)(byte)(reader["AppType"]);
-            eventlog.EntryID = DataConvert.SafeInt(reader["EntryID"]);
             return eventlog;
         }
 

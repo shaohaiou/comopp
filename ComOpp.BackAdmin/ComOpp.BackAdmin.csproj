@@ -153,6 +153,7 @@
     <Content Include="js\jquery.idTabs.min.js" />
     <Content Include="js\layout.js" />
     <Content Include="js\public.core.js" />
+    <Content Include="keepalive.aspx" />
     <Content Include="message.aspx" />
     <Content Include="plugins\jquery-easyui-1.3.6\datagrid-detailview.js" />
     <Content Include="plugins\jquery-easyui-1.3.6\easyui-lang-zh_CN.js" />
@@ -699,6 +700,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="keepalive.aspx.cs">
+      <DependentUpon>keepalive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="keepalive.aspx.designer.cs">
+      <DependentUpon>keepalive.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

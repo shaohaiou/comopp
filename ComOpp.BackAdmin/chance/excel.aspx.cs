@@ -142,8 +142,8 @@ namespace ComOpp.BackAdmin.chance
                 row.CreateCell(23).SetCellValue(list[i].ReservationTime);
                 row.CreateCell(24).SetCellValue(list[i].VisitTime);
                 row.CreateCell(25).SetCellValue(list[i].LeaveTime);
-                row.CreateCell(26).SetCellValue(list[i].VisitDuration);
-                row.CreateCell(27).SetCellValue(list[i].VisitNumber);
+                row.CreateCell(26).SetCellValue(list[i].IsVisit == 0 ? string.Empty : list[i].VisitDuration.ToString());
+                row.CreateCell(27).SetCellValue(list[i].IsVisit == 0 ? string.Empty : list[i].VisitNumber.ToString());
                 row.CreateCell(28).SetCellValue(list[i].IsVisit == 0 ? "否" : "是");
                 row.CreateCell(29).SetCellValue(string.Format("{0}-{1}-{2}", list[i].Province, list[i].City, list[i].District));
                 row.CreateCell(30).SetCellValue(list[i].BackupPhone);

@@ -31,7 +31,7 @@ namespace ComOpp.BackAdmin.system
                 if (currentlogentry == null)
                 {
                     int id = GetInt("id");
-                    EventLogs.GetModel(id);
+                    return EventLogs.GetModel(id);
                 }
 
                 return currentlogentry;

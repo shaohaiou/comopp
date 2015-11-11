@@ -10,6 +10,7 @@ namespace ComOpp.BackAdmin
 {
     public class Global : System.Web.HttpApplication
     {
+        //string keepaliveurl = System.Configuration.ConfigurationManager.AppSettings["keepaliveurl"];
 
         void Application_Start(object sender, EventArgs e)
         {
@@ -25,7 +26,10 @@ namespace ComOpp.BackAdmin
         void Application_End(object sender, EventArgs e)
         {
             //  在应用程序关闭时运行的代码
-
+            //if (!string.IsNullOrEmpty(keepaliveurl))
+            //{
+            //    new System.Net.WebClient().DownloadData(keepaliveurl);
+            //}
         }
 
         void Application_Error(object sender, EventArgs e)

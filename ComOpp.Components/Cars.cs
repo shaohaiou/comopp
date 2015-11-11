@@ -238,8 +238,8 @@ namespace ComOpp.Components
 
         public void CollectData()
         {
-            //每个月5号，凌晨3点，采集数据
-            if (DateTime.Now.Day == 5 && DateTime.Now.Hour == 3)
+            //每个月5号，凌晨3点5分，采集数据
+            if (DateTime.Now.Day == 5 && DateTime.Now.Hour == 3 && DateTime.Now.Minute == 5)
             {
                 if (!iscollected)
                 {

@@ -279,11 +279,11 @@ namespace ComOpp.Components
         private static bool hasruncustomerforcedout = false;
 
         /// <summary>
-        /// 每天凌晨2点开始执行
+        /// 每天凌晨2点5分开始执行
         /// </summary>
         public void CustomerForcedout()
         {
-            if (DateTime.Now.Hour == 2)
+            if (DateTime.Now.Hour == 2 && DateTime.Now.Minute == 5)
             {
                 if (!hasruncustomerforcedout)
                 {
@@ -360,11 +360,11 @@ namespace ComOpp.Components
         private static bool hasruncustomerdegrade = false;
 
         /// <summary>
-        /// 客户降级(每天凌晨1点开始执行)
+        /// 客户降级(每天凌晨1点5分开始执行)
         /// </summary>
         public void CustomerDegrade()
         {
-            if (DateTime.Now.Hour == 1)
+            if (DateTime.Now.Hour == 1 && DateTime.Now.Minute == 5)
             {
                 if (!hasruncustomerdegrade)
                 {

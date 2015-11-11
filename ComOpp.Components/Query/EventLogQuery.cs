@@ -71,25 +71,9 @@ namespace ComOpp.Components
         public string BulidQuery()
         {
             List<string> query = new List<string>();
-            if (!string.IsNullOrEmpty(ApplicationType))
-            {
-                query.Add(string.Format("AppType='{0}'", ApplicationType));
-            }
             if (EventType >= 0)
             {
                 query.Add(string.Format("EventType='{0}'", EventType));
-            }
-            if (EventID > 0)
-            {
-                query.Add(string.Format("EventID='{0}'", EventID));
-            }
-            if (ApplicationID > 0)
-            {
-                query.Add(string.Format("ApplicationID='{0}'", ApplicationID));
-            }
-            if (EntryID > 0)
-            {
-                query.Add(string.Format("EntryID='{0}'", EntryID));
             }
             if (StartTime.HasValue)
             {

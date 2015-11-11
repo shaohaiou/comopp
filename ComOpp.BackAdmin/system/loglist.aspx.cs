@@ -30,18 +30,17 @@ namespace ComOpp.BackAdmin.system
             {
                 int page = GetInt("page", 1);
                 int rows = GetInt("rows", 100);
-                int type = GetInt("type",-1);
+                int type = GetInt("type", -1);
                 string startime = GetString("starttime");
                 string endtime = GetString("endtime");
-                
+
                 int total = 0;
 
                 EventLogQuery query = new EventLogQuery();
-                if(type >= 0)
-                    query.EventType = type;
-                if(!string.IsNullOrEmpty(startime))
+                query.EventType = type;
+                if (!string.IsNullOrEmpty(startime))
                     query.StartTime = DateTime.Parse(startime);
-                if(!string.IsNullOrEmpty(endtime))
+                if (!string.IsNullOrEmpty(endtime))
                     query.EndTime = DateTime.Parse(endtime);
 
                 List<EventLogEntry> list = EventLogs.GetList(page, rows, query, out total);

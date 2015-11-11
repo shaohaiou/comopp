@@ -104,7 +104,7 @@ namespace ComOpp.Components
         {
             get
             {
-                return EventDate.ToString("yyyy-MM-dd HH:mm:ss");
+                return LastUpdateTime.HasValue ? LastUpdateTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "-";
             }
         }
 
@@ -123,7 +123,7 @@ namespace ComOpp.Components
         {
             get
             {
-                return EnumExtensions.GetDescription<EventType>(((int)EventType).ToString());
+                return EnumExtensions.GetDescription<EventType>(Enum.GetName(typeof(EventType), (int)EventType));
             }
         }
 
