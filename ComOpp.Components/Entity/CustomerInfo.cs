@@ -478,7 +478,7 @@ namespace ComOpp.Components
                     if (lastcustomerlevel != null)
                     {
                         DateTime lastconnecttime = DateTime.Parse(LastConnectTime);
-                        if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= (lastcustomerlevel.Alarmday - 1)) return "0";
+                        if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= (lastcustomerlevel.Alarmday - 1) || lastcustomerlevel.Alarmday == 0) return "0";
                         if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= lastcustomerlevel.Alarmday) return "1";
                         else return "2";
                     }

@@ -523,7 +523,7 @@
                 });
                 break; 
             case 'add':
-                dialog('755', <%= GetInt("state") == 3 ? "'480'" : "'435'" %>, $('div.tchose:first').text() + ' - 线索添加', "chanceedit.aspx?state=" + <%=GetInt("state") %> + "&r=" + Math.random()); return;
+                dialog('755', <%= GetInt("state") == 3 ? "'480'" : "'435'" %>, $('div.tchose:first').text() + ' - 线索添加', "chanceedit.aspx?state=" + <%=GetInt("state") %> + "&corpid=" + corpid + "&r=" + Math.random()); return;
                 break; 
             case 'import':
                 dialog('320', '180', $('div.tchose:first').text() + ' - 数据导入', "import.aspx?state=" + <%=GetInt("state") %> + "&corpid=" + corpid +"&r=" + Math.random()); return;

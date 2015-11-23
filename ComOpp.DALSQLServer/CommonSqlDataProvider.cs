@@ -1779,11 +1779,16 @@ namespace ComOpp.DALSQLServer
             SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, p);
         }
 
-        public override CustomerInfo GetCustomerByPhone(string phone)
+        public override CustomerInfo GetCustomerByPhone(string phone,int corpid)
         {
             CustomerInfo result = null;
-            string sql = "SELECT * FROM ComOpp_Customer WHERE [Phone] = @Phone";
-            using (IDataReader reader = SqlHelper.ExecuteReader(_con, CommandType.Text, sql,new SqlParameter("@Phone",phone)))
+            string sql = "SELECT * FROM ComOpp_Customer WHERE [Phone] = @Phone AND [CorporationID] = @CorporationID";
+            SqlParameter[] p = 
+            { 
+                new SqlParameter("@Phone",phone),
+                new SqlParameter("@CorporationID",corpid)
+            };
+            using (IDataReader reader = SqlHelper.ExecuteReader(_con, CommandType.Text, sql,p))
             {
                 if (reader.Read())
                 {

@@ -37,7 +37,8 @@ var cpcxDevice = {
                     if (typeof (cpcxDevice.box[key]) == 'undefined') continue;
                     cpcxDevice.box[key] = value[key];
                 }
-                break; default:
+                break; 
+            default:
                 if (typeof (cpcxDevice.box[name]) == 'undefined') return;
                 cpcxDevice.box[name] = value;
                 break;

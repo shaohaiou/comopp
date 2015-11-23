@@ -56,7 +56,7 @@ namespace ComOpp.BackAdmin.chance
                     Regex rphone = new Regex(@"^1[\d]{10}$");
                     if (!rphone.IsMatch(phone)) continue;
 
-                    if (Customers.Instance.GetCustomerByPhone(phone) == null)
+                    if (Customers.Instance.GetCustomerByPhone(phone, corpid) == null)
                     {
                         CustomerInfo entity = new CustomerInfo()
                         {

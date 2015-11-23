@@ -20,7 +20,8 @@ namespace ComOpp.Components.HttpHandler
             string result = "{{\"msg\":\"{0}\",\"result\":\"{1}\",\"isdel\":\"{2}\",\"id\":\"{3}\"}}";
             CommConfig config = CommConfig.GetConfig();
             string phone = WebHelper.GetString("phone");
-            CustomerInfo customer = Customers.Instance.GetCustomerByPhone(phone);
+            int corpid = WebHelper.GetInt("corpid");
+            CustomerInfo customer = Customers.Instance.GetCustomerByPhone(phone,corpid);
             if (customer != null)
             {
                 HttpContext.Current.Response.Write(string.Format(result, "该客户电话已经存在", "error", customer.DelState,customer.ID));

@@ -566,7 +566,7 @@
         p["tracktagname"] = tagname.join(',');
         //return Core.submit()
         form.find(":button").attr('disabled', 'disabled');
-        $.post('chanceedit.aspx?id=<%=GetInt("id") %>&state=<%= GetInt("state")%>', { "form": p }, function (data) {
+        $.post('chanceedit.aspx?id=<%=GetInt("id") %>&state=<%= GetInt("state")%>&corpid=<%=GetInt("corpid") %>', { "form": p }, function (data) {
             if (data != 'y') {
                 form.find(":button").removeAttr('disabled');
                 form.find('.formTip').html("数据提交失败!");
@@ -632,7 +632,7 @@
             url: 'checkcustomerphone.axd?d=' + new Date(),
             async: false,
             dataType: "json",
-            data: { phone: $(o).val() },
+            data: { phone: $(o).val(),corpid:<%= GetInt("corpid") %> },
             error: function (msg) {
 
             },

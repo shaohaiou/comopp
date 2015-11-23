@@ -33,6 +33,8 @@ namespace ComOpp.BackAdmin.chance
                 int lurkstate = GetInt("lurkstate", 0);
                 int checkstate = GetInt("checkstate", 0);
                 string action = GetString("action");
+                string sort = GetString("sort");
+                string order = GetString("order");
 
                 string customername = GetString("uname");
                 string customerphone = GetString("phone");
@@ -220,6 +222,87 @@ namespace ComOpp.BackAdmin.chance
                             }
                             list = listresult;
                         }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(sort) && !string.IsNullOrEmpty(order))
+                {
+                    switch (sort)
+                    {
+                        case "posttime":
+                            list = order == "asc" ? list.OrderBy(l=>l.PostTime).ToList() : list.OrderByDescending(l=>l.PostTime).ToList();
+                            break;
+                        case "infotype":
+                            list = order == "asc" ? list.OrderBy(l => l.InfoType).ToList() : list.OrderByDescending(l => l.InfoType).ToList();
+                            break;
+                        case "infosource":
+                            list = order == "asc" ? list.OrderBy(l => l.InfoSource).ToList() : list.OrderByDescending(l => l.InfoSource).ToList();
+                            break;
+                        case "sex":
+                            list = order == "asc" ? list.OrderBy(l => l.CustomerSex).ToList() : list.OrderByDescending(l => l.CustomerSex).ToList();
+                            break;
+                        case "phonevest":
+                            list = order == "asc" ? list.OrderBy(l => l.PhoneVest).ToList() : list.OrderByDescending(l => l.PhoneVest).ToList();
+                            break;
+                        case "owner":
+                            list = order == "asc" ? list.OrderBy(l => l.Owner).ToList() : list.OrderByDescending(l => l.Owner).ToList();
+                            break;
+                        case "ibuycarbrand":
+                            list = order == "asc" ? list.OrderBy(l => l.IbuyCarBrand).ToList() : list.OrderByDescending(l => l.IbuyCarBrand).ToList();
+                            break;
+                        case "ibuycarmodel":
+                            list = order == "asc" ? list.OrderBy(l => l.IbuyCarModel).ToList() : list.OrderByDescending(l => l.IbuyCarModel).ToList();
+                            break;
+                        case "ibuytime":
+                            list = order == "asc" ? list.OrderBy(l => l.IbuyTime).ToList() : list.OrderByDescending(l => l.IbuyTime).ToList();
+                            break;
+                        case "lastcustomerlevel":
+                            list = order == "asc" ? list.OrderBy(l => l.LastCustomerLevel).ToList() : list.OrderByDescending(l => l.LastCustomerLevel).ToList();
+                            break;
+                        case "connectalarm":
+                            list = order == "asc" ? list.OrderBy(l => l.ConnectAlarm).ToList() : list.OrderByDescending(l => l.ConnectAlarm).ToList();
+                            break;
+                        case "lastconnecttime":
+                            list = order == "asc" ? list.OrderBy(l => l.LastConnectTime).ToList() : list.OrderByDescending(l => l.LastConnectTime).ToList();
+                            break;
+                        case "reservationtime":
+                            list = order == "asc" ? list.OrderBy(l => l.ReservationTime).ToList() : list.OrderByDescending(l => l.ReservationTime).ToList();
+                            break;
+                        case "visittime":
+                            list = order == "asc" ? list.OrderBy(l => l.VisitTime).ToList() : list.OrderByDescending(l => l.VisitTime).ToList();
+                            break;
+                        case "leavetime":
+                            list = order == "asc" ? list.OrderBy(l => l.LeaveTime).ToList() : list.OrderByDescending(l => l.LeaveTime).ToList();
+                            break;
+                        case "isvisit":
+                            list = order == "asc" ? list.OrderBy(l => l.IsVisit).ToList() : list.OrderByDescending(l => l.IsVisit).ToList();
+                            break;
+                        case "province":
+                            list = order == "asc" ? list.OrderBy(l => l.Province).ToList() : list.OrderByDescending(l => l.Province).ToList();
+                            break;
+                        case "city":
+                            list = order == "asc" ? list.OrderBy(l => l.City).ToList() : list.OrderByDescending(l => l.City).ToList();
+                            break;
+                        case "district":
+                            list = order == "asc" ? list.OrderBy(l => l.District).ToList() : list.OrderByDescending(l => l.District).ToList();
+                            break;
+                        case "ordernumber":
+                            list = order == "asc" ? list.OrderBy(l => l.OrderNumber).ToList() : list.OrderByDescending(l => l.OrderNumber).ToList();
+                            break;
+                        case "knockdownprice":
+                            list = order == "asc" ? list.OrderBy(l => l.KnockdownPrice).ToList() : list.OrderByDescending(l => l.KnockdownPrice).ToList();
+                            break;
+                        case "placeordertime":
+                            list = order == "asc" ? list.OrderBy(l => l.PlaceOrderTime).ToList() : list.OrderByDescending(l => l.PlaceOrderTime).ToList();
+                            break;
+                        case "createtime":
+                            list = order == "asc" ? list.OrderBy(l => l.CreateTime).ToList() : list.OrderByDescending(l => l.CreateTime).ToList();
+                            break;
+                        case "showno":
+                            list = order == "asc" ? list.OrderBy(l => l.ShowNo).ToList() : list.OrderByDescending(l => l.ShowNo).ToList();
+                            break;
+                        default:
+                            break;
                     }
                 }
 

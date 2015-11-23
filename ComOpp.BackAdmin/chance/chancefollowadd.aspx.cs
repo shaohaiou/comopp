@@ -41,15 +41,17 @@ namespace ComOpp.BackAdmin.chance
             if (id > 0)
                 CurrentCustomerInfo = Customers.Instance.GetCustomerByID(id);
 
-            rptConnectway.DataSource = ConnectWays.Instance.GetListByCorpid(Corporation.ID, true);
+            int corpid = CurrentCustomerInfo == null ? Corporation.ID : CurrentCustomerInfo.CorporationID;
+
+            rptConnectway.DataSource = ConnectWays.Instance.GetListByCorpid(corpid, true);
             rptConnectway.DataBind();
 
-            rptCustomerLevel.DataSource = CustomerLevels.Instance.GetListByCorpid(Corporation.ID,true);
+            rptCustomerLevel.DataSource = CustomerLevels.Instance.GetListByCorpid(corpid, true);
             rptCustomerLevel.DataBind();
 
             List<AdminInfo> list = Admins.Instance.GetUsers();
             list = list.OrderBy(l => l.Realname).ToList();
-            rptUser.DataSource = list.FindAll(l => l.CorporationID == Corporation.ID);
+            rptUser.DataSource = list.FindAll(l => l.CorporationID == corpid);
             rptUser.DataBind();
         }
 

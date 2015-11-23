@@ -46,7 +46,7 @@ namespace ComOpp.Components
                 List<CustomerInfo> list = GetCustomerListForPhoneVest();
                 WebClient wc = new WebClient();
                 foreach (CustomerInfo c in list)
-                {
+                {   
                     try
                     {
                         string request = Http.GetPage(string.Format(url, c.Phone));
@@ -242,10 +242,9 @@ namespace ComOpp.Components
             return result;
         }
 
-
-        public CustomerInfo GetCustomerByPhone(string phone)
+        public CustomerInfo GetCustomerByPhone(string phone,int corpid)
         {
-            return CommonDataProvider.Instance().GetCustomerByPhone(phone);
+            return CommonDataProvider.Instance().GetCustomerByPhone(phone,corpid);
         }
 
         public CustomerInfo GetCustomerByID(int id)

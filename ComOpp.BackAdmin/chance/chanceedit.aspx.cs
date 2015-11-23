@@ -180,24 +180,27 @@ namespace ComOpp.BackAdmin.chance
 
         private void BindControlor()
         {
-            rptInfoType.DataSource = InfoTypes.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID,true);
+            int corpid = GetInt("corpid", 0);
+            if (CurrentCustomerInfo != null)
+                corpid = CurrentCustomerInfo.CorporationID;
+
+            rptInfoType.DataSource = InfoTypes.Instance.GetListByCorpid(corpid, true);
             rptInfoType.DataBind();
 
-            rptInfoSource.DataSource = InfoSources.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID, true);
+            rptInfoSource.DataSource = InfoSources.Instance.GetListByCorpid(corpid, true);
             rptInfoSource.DataBind();
 
-            rptPaymentway.DataSource = PaymentWays.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID, true);
+            rptPaymentway.DataSource = PaymentWays.Instance.GetListByCorpid(corpid, true);
             rptPaymentway.DataBind();
 
-            rptIbuytime.DataSource = Ibuytimes.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID, true);
+            rptIbuytime.DataSource = Ibuytimes.Instance.GetListByCorpid(corpid, true);
             rptIbuytime.DataBind();
 
-            rptTracktag.DataSource = Tracktags.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID, true);
+            rptTracktag.DataSource = Tracktags.Instance.GetListByCorpid(corpid, true);
             rptTracktag.DataBind();
 
             List<AdminInfo> list = Admins.Instance.GetUsers();
-            if (Corporation != null)
-                list = list.FindAll(a=>a.CorporationID == Corporation.ID);
+            list = list.FindAll(a => a.CorporationID == corpid);
             list = list.OrderBy(l=>l.UserRole).ThenBy(l=>l.Realname).ToList();
             rptOwner.DataSource = list;
             rptOwner.DataBind();
@@ -206,7 +209,7 @@ namespace ComOpp.BackAdmin.chance
             rptCustomerStatus.DataSource = tblCustomerStatus.DefaultView; 
             rptCustomerStatus.DataBind();
 
-            rptGiveupCause.DataSource = GiveupCauses.Instance.GetListByCorpid(Corporation == null ? 0 : Corporation.ID, true);
+            rptGiveupCause.DataSource = GiveupCauses.Instance.GetListByCorpid(corpid, true);
             rptGiveupCause.DataBind();
 
             if (CurrentCustomerInfo != null)
@@ -386,7 +389,7 @@ namespace ComOpp.BackAdmin.chance
                 entity.LastUpdateUser = Admin.Realname;
                 entity.LastUpdateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                 entity.PostTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-                entity.CorporationID = Admin.CorporationID;
+                entity.CorporationID = GetInt("corpid");
                 entity.SystemRemark = DateTime.Today.ToString("yyyy年MM月dd日") + "线索录入";
                 FillData(entity);
 

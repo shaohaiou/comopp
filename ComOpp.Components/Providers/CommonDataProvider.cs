@@ -735,7 +735,7 @@ namespace ComOpp.Components
 
         public abstract int UpdateCustomerLastConnect(CustomerInfo entity);
 
-        public abstract CustomerInfo GetCustomerByPhone(string phone);
+        public abstract CustomerInfo GetCustomerByPhone(string phone,int corpid);
 
         public abstract CustomerInfo GetCustomerByID(int id);
 

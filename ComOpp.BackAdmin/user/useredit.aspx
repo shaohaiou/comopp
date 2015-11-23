@@ -27,7 +27,7 @@
                 性别：</label>
             <asp:radiobuttonlist runat="server" id="rblSex" repeatdirection="Horizontal" repeatlayout="Flow"
                 cssclass="rbl">
-                    <asp:ListItem Text="保密" Value="0"></asp:ListItem>
+                    <asp:ListItem Text="保密" Value="0" Selected="true"></asp:ListItem>
                     <asp:ListItem Text="男" Value="1"></asp:ListItem>
                     <asp:ListItem Text="女" Value="2"></asp:ListItem>
                 </asp:radiobuttonlist>
@@ -37,7 +37,7 @@
                 状态：</label>
             <asp:radiobuttonlist runat="server" id="rblState" repeatdirection="Horizontal" repeatlayout="Flow"
                 cssclass="rbl">
-                    <asp:ListItem Text="正常" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="正常" Value="1" Selected="true"></asp:ListItem>
                     <asp:ListItem Text="锁定" Value="2"></asp:ListItem>
                 </asp:radiobuttonlist>
         </li>
