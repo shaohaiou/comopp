@@ -46,7 +46,7 @@ namespace ComOpp.Components
                 List<CustomerInfo> list = GetCustomerListForPhoneVest();
                 WebClient wc = new WebClient();
                 foreach (CustomerInfo c in list)
-                {   
+                {
                     try
                     {
                         string request = Http.GetPage(string.Format(url, c.Phone));
@@ -57,6 +57,13 @@ namespace ComOpp.Components
                             if (!string.IsNullOrEmpty(province) && !string.IsNullOrEmpty(city))
                             {
                                 c.PhoneVest = province + " " + city;
+                                UpdateCustomerPhoneVest(c);
+                                RefreshCustomerCache(c);
+                                Thread.Sleep(5000);
+                            }
+                            else
+                            {
+                                c.PhoneVest = "未知";
                                 UpdateCustomerPhoneVest(c);
                                 RefreshCustomerCache(c);
                                 Thread.Sleep(5000);
@@ -72,8 +79,8 @@ namespace ComOpp.Components
                 ExpLog.Write(ex);
             }
             finally
-            { 
-            
+            {
+
             }
         }
 
@@ -242,9 +249,9 @@ namespace ComOpp.Components
             return result;
         }
 
-        public CustomerInfo GetCustomerByPhone(string phone,int corpid)
+        public CustomerInfo GetCustomerByPhone(string phone, int corpid)
         {
-            return CommonDataProvider.Instance().GetCustomerByPhone(phone,corpid);
+            return CommonDataProvider.Instance().GetCustomerByPhone(phone, corpid);
         }
 
         public CustomerInfo GetCustomerByID(int id)
@@ -351,7 +358,7 @@ namespace ComOpp.Components
 
         #region 客户等级降级
 
-        public void SetCustomerLevel(int id,int level)
+        public void SetCustomerLevel(int id, int level)
         {
             CommonDataProvider.Instance().SetCustomerLevel(id, level);
         }
@@ -382,7 +389,7 @@ namespace ComOpp.Components
                             {
                                 if (cinfo.LastCustomerLevelID > 0)
                                 {
-                                    CustomerLevelInfo level = CustomerLevels.Instance.GetModel(cinfo.LastCustomerLevelID,true);
+                                    CustomerLevelInfo level = CustomerLevels.Instance.GetModel(cinfo.LastCustomerLevelID, true);
                                     InfoTypeInfo infotype = InfoTypes.Instance.GetModel(cinfo.InfoTypeID);
 
                                     //如果已经是最低一级则不处理
@@ -392,9 +399,9 @@ namespace ComOpp.Components
                                     if (level != null && level.Drtday > 0)
                                     {
                                         DateTime lastconnecttime = DateTime.Now;
-                                        if(DateTime.TryParse(cinfo.LastConnectTime,out lastconnecttime))
+                                        if (DateTime.TryParse(cinfo.LastConnectTime, out lastconnecttime))
                                         {
-                                            if(infotype != null && infotype.Locked == 1)
+                                            if (infotype != null && infotype.Locked == 1)
                                             {
                                                 double days = DateTime.Now.Subtract(lastconnecttime).TotalDays;
                                                 //锁定级别判断

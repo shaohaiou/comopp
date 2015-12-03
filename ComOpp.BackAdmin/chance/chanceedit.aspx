@@ -545,6 +545,8 @@
             form.find('.formTip').html('请输入客户姓名!'); return false;
         } else if (!Core.rule.common('*', p["phone"])) {
             form.find('.formTip').html('请输入客户电话!'); return false;
+        }  else if (!Core.rule.isPhone(p["phone"])) {
+            form.find('.formTip').html('客户电话不符合规范!'); return false;
         } else if (!Core.rule.isNumber('p.integer', p["infotype"])) {
             form.find('.formTip').html('请选择信息类型!'); return false;
         } else if (!Core.rule.isNumber('p.integer', p["infosource"])) {
@@ -628,29 +630,35 @@
     });
 
     function checkphone(o) {
-        $.ajax({
-            url: 'checkcustomerphone.axd?d=' + new Date(),
-            async: false,
-            dataType: "json",
-            data: { phone: $(o).val(),corpid:<%= GetInt("corpid") %> },
-            error: function (msg) {
+        var form = $(o).parents("form");
+        if (!Core.rule.isPhone($(o).val())) {
+            form.find('.formTip').html('客户电话不符合规范!'); return false;
+        }
+        else{
+            form.find('.formTip').html("");
+            $.ajax({
+                url: 'checkcustomerphone.axd?d=' + new Date(),
+                async: false,
+                dataType: "json",
+                data: { phone: $(o).val(),corpid:<%= GetInt("corpid") %> },
+                error: function (msg) {
 
-            },
-            success: function (data) {
-                if (data.result == 'success') {
-                }
-                else {
-                    var form = $(o).parents("form");
-                    form.find('.formTip').html('该客户电话已经存在或不符合规范!'); 
-                    $(o).attr("title", $(o).val());
-                    if(data.isdel == "1"){
-                        $.messager.confirm('激活','该客户电话已经存在于删除库中,是否激活?',function(r){
-                            if(!r) return;
-                            dialog('755','435',"激活已删除客户","chanceedit.aspx?id="+data.id+"&action=recover&state=2&r="+Math.random());return;
-                        });
+                },
+                success: function (data) {
+                    if (data.result == 'success') {
+                    }
+                    else {
+                        form.find('.formTip').html('该客户电话已经存在或不符合规范!'); 
+                        $(o).attr("title", $(o).val());
+                        if(data.isdel == "1"){
+                            $.messager.confirm('激活','该客户电话已经存在于删除库中,是否激活?',function(r){
+                                if(!r) return;
+                                dialog('755','435',"激活已删除客户","chanceedit.aspx?id="+data.id+"&action=recover&state=2&r="+Math.random());return;
+                            });
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 </script>

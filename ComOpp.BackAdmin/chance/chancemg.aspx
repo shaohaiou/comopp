@@ -182,14 +182,30 @@
 </script>
 <script type="text/javascript">
     Core.Easyui.FieldColumns = [
-        { field: 'posttime', title: '提交时间', width: 120, align: 'center', sortable: true },
-        { field: 'infotype', title: '信息类型', width: 100, align: 'center', sortable: true },
-        { field: 'infosource', title: '信息来源', width: 100, align: 'center', sortable: true },
+        { field: 'connectalarm', title: '追踪报警', width: 100, align: 'center', sortable: true, formatter: function (value, row, index) {
+            if ((parseInt(row.state) >= 2 && parseInt(row.state) <= 4)) {
+                switch (value) { case "0": return '正常'; break; case "1": return "正常(24小时内超时)"; break; case "2": return '<span style="color:red">追踪超时</span>'; break; }
+            } else {
+                return '-';
+            }
+        }
+        },
+        { field: 'lastcustomerlevel', title: '追踪级别', width: 80, align: 'center', sortable: true, formatter: function (value, row, index) {
+            return (parseInt(row.state) >= 2 && parseInt(row.state) <= 4) ? value : "-";
+        } 
+        },
+        { field: 'ifollow', title: '追踪', width: 50, align: 'center', formatter: function (value, row, index) {
+            return (parseInt(row.state) >= 2 && parseInt(row.state) <= 4) ? "<a onclick='Core.Easyui.Action(\"follow\",this);' data-tid='" + row.id + "' class='coR00f'>追踪</a>" : '-';
+        }
+        },
+        { field: 'lastconnecttime', title: '最后追踪时间', width: 120, align: 'center', sortable: true },
         { field: 'sex', title: '性别', width: 45, align: 'center', sortable: true, formatter: function (value, row, index) {
             switch (value) { case 1: return "<i class='male' title='男'></i>"; break; case 2: return "<i class='female' title='女'></i>"; break; case 0: return '-'; break; }
         }},
         { field: 'phonevest', title: '号码归属地', width: 100, align: 'center', sortable: true },
-        { field: 'owner', title: '线索拥有者', width: 100, align: 'center', sortable: true},
+        { field: 'owner', title: '线索拥有者', width: 100, align: 'center', sortable: true },
+        { field: 'infosource', title: '信息来源', width: 100, align: 'center', sortable: true },
+        { field: 'infotype', title: '信息类型', width: 100, align: 'center', sortable: true },
         { field: 'tracktag', title: '标签', width: 100, align: 'center' },
         { field: 'ibuycarbrand', title: '拟购品牌', width: 80, align: 'center', sortable: true },
         { field: 'ibuycarmodel', title: '拟购车型', width: 100, align: 'center', sortable: true },
@@ -197,22 +213,8 @@
         { field: 'quotedpriceinfo', title: '报价', width: 100, align: 'center' },
         { field: 'promotioninfo', title: '促销内容', width: 120, align: 'center' },
         { field: 'remarkinfo', title: '备注', width: 350, align: 'center' },
-        { field: 'ifollow', title: '追踪', width: 70, align: 'center', formatter: function (value, row, index) {
-            return (parseInt(row.state) >= 2 && parseInt(row.state) <= 4) ? "<a onclick='Core.Easyui.Action(\"follow\",this);' data-tid='" + row.id + "' class='coR00f'>追踪</a>" : '-';
-        }},
-        { field: 'lastcustomerlevel', title: '追踪级别', width: 100, align: 'center', sortable: true, formatter: function (value, row, index) {
-            return (parseInt(row.state) >= 2 && parseInt(row.state) <= 4) ? value : "-";
-        }},
-        { field: 'connectalarm', title: '追踪报警', width: 100, align: 'center', sortable: true, formatter: function (value, row, index) {
-            if ((parseInt(row.state) >= 2 && parseInt(row.state) <= 4)) {
-                switch (value) { case "0": return '正常'; break; case "1": return "正常(24小时内超时)"; break; case "2": return '追踪超时'; break; }
-            } else {
-                return '-';
-            }
-        }},
         { field: 'tracetimes', title: '追踪次数', width: 100, align: 'center' },
         { field: 'lastconnectway', title: '追踪方式', width: 100, align: 'center' },
-        { field: 'lastconnecttime', title: '最后追踪时间', width: 120, align: 'center', sortable: true},
         { field: 'lastconnectuser', title: '最后追踪人', width: 100, align: 'center' },
         { field: 'lastconnectdetail', title: '追踪情况', width: 120, align: 'center' },
         { field: 'reservationtime', title: '预约到店时间', width: 120, align: 'center', sortable: true},
@@ -246,7 +248,8 @@
         { field: 'picupcartime', title: '提车时间', width: 120, align: 'center', sortable: true},
         { field: 'givecause', title: '战败原因', width: 100, align: 'center' },
         { field: 'failurecauseanalyze', title: '战败原因分析', width: 100, align: 'center' },
-        { field: 'createtime', title: '建档时间', width: 120, align: 'center', sortable: true},
+        { field: 'createtime', title: '建档时间', width: 120, align: 'center', sortable: true },
+        { field: 'posttime', title: '提交时间', width: 120, align: 'center', sortable: true },
         { field: 'marketdirector', title: '市场专员', width: 100, align: 'center', sortable: true, formatter: function (value, row, index) {
             return $.inArray(row.state, ['1']) != -1 ? "<span style='color:red'>" + value + "</span>" : value;
         }
@@ -275,11 +278,11 @@
             { field: 'action', title: '操作', width: 40, align: 'center', formatter: function (value, row, index) {
                 return "<a class='data-archive-state coRf76120 operate_btn'' data-tid='" + row.id + "' data-state='" + row.state + "' data-stated='" + row.stated + "' data-index='" + index + "' data-posttime='" + row.posttime + "' onClick='Core.Easyui.Action(\"Toolbar\",this)'></a>";
             }},
-            { field: 'state', title: '线索状态', width: 100, align: 'center', formatter: function (value, row, index) {
+            { field: 'state', title: '线索状态', width: 80, align: 'center', formatter: function (value, row, index) {
                 return Core.Easyui.State[value] ? '<span ' + Core.Easyui.Params.Attention(value, row.posttime, row.lastcustomerlevelid) + '>' + Core.Easyui.State[value] + '</span>' : '';
             }},
             { field: 'name', title: '客户姓名', width: 80, align: 'center' },
-            { field: 'phone', title: '客户电话', width: 110, align: 'center', sortable: true},
+            { field: 'phone', title: '客户电话', width: 90, align: 'center', sortable: true},
             { field: 'ibuycarseries', title: '拟购车系', width: 100, align: 'center', sortable: true }
         ]], 
         onSortColumn: function (sort, order) {
@@ -709,7 +712,7 @@
                     $("span.fieldselect").show();
                     $("#keywords_select").combobox({
                         method: 'get',
-                        valueField: 'uid',
+                        valueField: 'id',
                         textField: 'realnameandgroupname',
                         url: "/ajax/getsearchlist.aspx?action=userlist&corpid=" + corpid,
                         onLoadSuccess: function () {

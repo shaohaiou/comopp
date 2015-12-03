@@ -35,7 +35,7 @@
     <div data-options="region:'north',border:false" style="height: 36px; overflow: hidden;
         background: #2BB7AA">
         <div class="header">
-            <a class="sysname fl">
+            <a class="sysname fl" href="index.aspx">
                 <%if (!Admin.Administrator)
                   { %><%= Admin.Corporation %>｜<%} %>商机管理系统(销售)</a>
             <ul class="litNav fr">

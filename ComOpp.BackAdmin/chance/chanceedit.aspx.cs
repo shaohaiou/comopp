@@ -263,8 +263,11 @@ namespace ComOpp.BackAdmin.chance
                 entity.CustomerStatus = (int)CustomerStatus.清洗_邀约;
                 entity.PostTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                 entity.CheckStatus = 0;
-                entity.LurkStatus = 0;
+                entity.LurkStatus = 0; 
             }
+            AdminInfo ownerinfo = Admins.Instance.GetAdmin(entity.OwnerID);
+            if(ownerinfo != null)
+                entity.OwnerPowerGroupID = ownerinfo.PowerGroupID;
         }
 
         private void CommitData()

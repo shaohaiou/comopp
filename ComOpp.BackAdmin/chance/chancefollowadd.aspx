@@ -6,7 +6,7 @@
         <td class="tit">客户姓名：</td>
         <td><%=CurrentCustomerInfo == null ? string.Empty : CurrentCustomerInfo.Name%></td>
         <td class="tit">客户电话：</td>
-        <td>13456000278</td>
+        <td><%= CurrentCustomerInfo == null ? string.Empty : CurrentCustomerInfo.Phone%></td>
       </tr>
       <tr>
         <td class="tit">追踪方式：</td>

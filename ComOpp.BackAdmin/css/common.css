@@ -134,7 +134,7 @@ input[type="reset"]{
 ******************/
 /****************zsx 头部和左导航样式**********************/
 .header{height:35px;width:100%;background:#2bb8aa;}
-.header .sysname{margin:5px 0 0 33px;width:350px;height:25px;line-height:25px;overflow:hidden;vertical-align:middle;color:#ffffff;font-size:18px;font-weight:bold;cursor:default;}
+.header .sysname{margin:5px 0 0 33px;height:25px;line-height:25px;overflow:hidden;vertical-align:middle;color:#ffffff;font-size:18px;font-weight:bold;}
 .hsSearch{width:200px;height:25px;line-height:25px;margin:5px 0;background:#ffffff;position:relative;}
 .hsSearch .hsSubmit{position:absolute;right:0;width:30px;height:25px;line-height:25px;border:0; background:url(../images/search_icon.png) center center no-repeat;}
 .hsSearch .hsInput{position:absolute;left:0;width:170px;height:21px;line-height:21px\9;border:0;padding:2px 0;text-indent:5px;color:#bbbbbb;}

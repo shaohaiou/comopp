@@ -1561,51 +1561,54 @@ namespace ComOpp.DALSQLServer
                 INSERT INTO ComOpp_Customer(
                     [Name],[Phone],[BackupPhone],[ProvinceID],[CityID],[DistrictID],[Address],[WeixinAccount],[InfoTypeID],[InfoSourceID],[PaymentWayID],[IbuyCarBrandID]
                     ,[IbuyCarSeriesID],[IbuyCarModelID],[IbuyTimeID],[QuotedpriceInfo],[PromotionInfo],[RemarkInfo],[OwnerID],[Owner],[OwnerPowerGroupID],[CustomerSex],[TracktagID]
-                    ,[Tracktag],[CustomerStatus],[CreateTime],[CreateUserID],[CreateUser],[LastUpdateUserID],[LastUpdateUser],[LastUpdateTime],[CorporationID],[PostTime],[SystemRemark]
+                    ,[Tracktag],[CustomerStatus],[CreateTime],[CreateUserID],[CreateUser],[LastUpdateUserID],[LastUpdateUser],[LastUpdateTime],[VisitTime],[VisitNumber],[IsVisit],[CorporationID],[PostTime],[SystemRemark]
                 )VALUES(
                     @Name,@Phone,@BackupPhone,@ProvinceID,@CityID,@DistrictID,@Address,@WeixinAccount,@InfoTypeID,@InfoSourceID,@PaymentWayID,@IbuyCarBrandID
                     ,@IbuyCarSeriesID,@IbuyCarModelID,@IbuyTimeID,@QuotedpriceInfo,@PromotionInfo,@RemarkInfo,@OwnerID,@Owner,@OwnerPowerGroupID,@CustomerSex,@TracktagID
-                    ,@Tracktag,@CustomerStatus,@CreateTime,@CreateUserID,@CreateUser,@LastUpdateUserID,@LastUpdateUser,@LastUpdateTime,@CorporationID,@PostTime,@SystemRemark
+                    ,@Tracktag,@CustomerStatus,@CreateTime,@CreateUserID,@CreateUser,@LastUpdateUserID,@LastUpdateUser,@LastUpdateTime,@VisitTime,@VisitNumber,@IsVisit,@CorporationID,@PostTime,@SystemRemark
                 );
                 SELECT @@IDENTITY;
             ";
             SqlParameter[] p = 
             {
-                new SqlParameter("Name",entity.Name),
-                new SqlParameter("Phone",entity.Phone),
-                new SqlParameter("BackupPhone",entity.BackupPhone),
-                new SqlParameter("ProvinceID",entity.ProvinceID),
-                new SqlParameter("CityID",entity.CityID),
-                new SqlParameter("DistrictID",entity.DistrictID),
-                new SqlParameter("Address",entity.Address),
-                new SqlParameter("WeixinAccount",entity.WeixinAccount),
-                new SqlParameter("InfoTypeID",entity.InfoTypeID),
-                new SqlParameter("InfoSourceID",entity.InfoSourceID),
-                new SqlParameter("PaymentWayID",entity.PaymentWayID),
-                new SqlParameter("IbuyCarBrandID",entity.IbuyCarBrandID),
-                new SqlParameter("IbuyCarSeriesID",entity.IbuyCarSeriesID),
-                new SqlParameter("IbuyCarModelID",entity.IbuyCarModelID),
-                new SqlParameter("IbuyTimeID",entity.IbuyTimeID),
-                new SqlParameter("QuotedpriceInfo",entity.QuotedpriceInfo),
-                new SqlParameter("PromotionInfo",entity.PromotionInfo),
-                new SqlParameter("RemarkInfo",entity.RemarkInfo),
-                new SqlParameter("OwnerID",entity.OwnerID),
-                new SqlParameter("Owner",entity.Owner),
-                new SqlParameter("OwnerPowerGroupID",entity.OwnerPowerGroupID),
-                new SqlParameter("CustomerSex",entity.CustomerSex),
-                new SqlParameter("TracktagID",entity.TracktagID),
-                new SqlParameter("Tracktag",entity.Tracktag),
-                new SqlParameter("CustomerStatus",entity.CustomerStatus),
-                new SqlParameter("CreateTime",entity.CreateTime),
-                new SqlParameter("CreateUserID",entity.CreateUserID),
-                new SqlParameter("CreateUser",entity.CreateUser),
-                new SqlParameter("LastUpdateUserID",entity.LastUpdateUserID),
-                new SqlParameter("LastUpdateUser",entity.LastUpdateUser),
-                new SqlParameter("LastUpdateTime",entity.LastUpdateTime),
-                new SqlParameter("CorporationID",entity.CorporationID),
-                new SqlParameter("PostTime",entity.PostTime),
-                new SqlParameter("SystemRemark",entity.SystemRemark)
-            };
+                new SqlParameter("@Name",entity.Name),
+                new SqlParameter("@Phone",entity.Phone),
+                new SqlParameter("@BackupPhone",entity.BackupPhone),
+                new SqlParameter("@ProvinceID",entity.ProvinceID),
+                new SqlParameter("@CityID",entity.CityID),
+                new SqlParameter("@DistrictID",entity.DistrictID),
+                new SqlParameter("@Address",entity.Address),
+                new SqlParameter("@WeixinAccount",entity.WeixinAccount),
+                new SqlParameter("@InfoTypeID",entity.InfoTypeID),
+                new SqlParameter("@InfoSourceID",entity.InfoSourceID),
+                new SqlParameter("@PaymentWayID",entity.PaymentWayID),
+                new SqlParameter("@IbuyCarBrandID",entity.IbuyCarBrandID),
+                new SqlParameter("@IbuyCarSeriesID",entity.IbuyCarSeriesID),
+                new SqlParameter("@IbuyCarModelID",entity.IbuyCarModelID),
+                new SqlParameter("@IbuyTimeID",entity.IbuyTimeID),
+                new SqlParameter("@QuotedpriceInfo",entity.QuotedpriceInfo),
+                new SqlParameter("@PromotionInfo",entity.PromotionInfo),
+                new SqlParameter("@RemarkInfo",entity.RemarkInfo),
+                new SqlParameter("@OwnerID",entity.OwnerID),
+                new SqlParameter("@Owner",entity.Owner),
+                new SqlParameter("@OwnerPowerGroupID",entity.OwnerPowerGroupID),
+                new SqlParameter("@CustomerSex",entity.CustomerSex),
+                new SqlParameter("@TracktagID",entity.TracktagID),
+                new SqlParameter("@Tracktag",entity.Tracktag),
+                new SqlParameter("@CustomerStatus",entity.CustomerStatus),
+                new SqlParameter("@CreateTime",entity.CreateTime),
+                new SqlParameter("@CreateUserID",entity.CreateUserID),
+                new SqlParameter("@CreateUser",entity.CreateUser),
+                new SqlParameter("@LastUpdateUserID",entity.LastUpdateUserID),
+                new SqlParameter("@LastUpdateUser",entity.LastUpdateUser),
+                new SqlParameter("@LastUpdateTime",entity.LastUpdateTime),
+                new SqlParameter("@VisitTime",entity.VisitTime),
+                new SqlParameter("@VisitNumber",entity.VisitNumber),
+                new SqlParameter("@IsVisit",entity.IsVisit),
+                new SqlParameter("@CorporationID",entity.CorporationID),
+                new SqlParameter("@PostTime",entity.PostTime),
+                new SqlParameter("@SystemRemark",entity.SystemRemark)
+            };                    
             entity.ID = DataConvert.SafeInt(SqlHelper.ExecuteScalar(_con, CommandType.Text, sql, p));
             return entity.ID;
         }
@@ -1860,15 +1863,15 @@ namespace ComOpp.DALSQLServer
             ";
             SqlParameter[] p = 
             {
-                new SqlParameter("CustomerID",entity.CustomerID),
-                new SqlParameter("CustomerStatus",entity.CustomerStatus),
-                new SqlParameter("CustomerStatusSource",entity.CustomerStatusSource),
-                new SqlParameter("OwnerID",entity.OwnerID),
-                new SqlParameter("Owner",entity.Owner),
-                new SqlParameter("LastUpdateUserID",entity.LastUpdateUserID),
-                new SqlParameter("LastUpdateUser",entity.LastUpdateUser),
-                new SqlParameter("CreateTime",entity.CreateTime),
-                new SqlParameter("SystemMsg",entity.SystemMsg)
+                new SqlParameter("@CustomerID",entity.CustomerID),
+                new SqlParameter("@CustomerStatus",entity.CustomerStatus),
+                new SqlParameter("@CustomerStatusSource",entity.CustomerStatusSource),
+                new SqlParameter("@OwnerID",entity.OwnerID),
+                new SqlParameter("@Owner",entity.Owner),
+                new SqlParameter("@LastUpdateUserID",entity.LastUpdateUserID),
+                new SqlParameter("@LastUpdateUser",entity.LastUpdateUser),
+                new SqlParameter("@CreateTime",entity.CreateTime),
+                new SqlParameter("@SystemMsg",entity.SystemMsg)
             };
             entity.ID = DataConvert.SafeInt(SqlHelper.ExecuteScalar(_con, CommandType.Text, sql, p));
             return entity.ID;
@@ -1920,17 +1923,17 @@ namespace ComOpp.DALSQLServer
             ";
             SqlParameter[] p = 
             {
-                new SqlParameter("CustomerID",entity.CustomerID),
-                new SqlParameter("CustomerName",entity.CustomerName),
-                new SqlParameter("CustomerPhone",entity.CustomerPhone),
-                new SqlParameter("ConnectUserID",entity.ConnectUserID),
-                new SqlParameter("ConnectUser",entity.ConnectUser),
-                new SqlParameter("FollowTime",entity.FollowTime),
-                new SqlParameter("ConnectwayID",entity.ConnectwayID),
-                new SqlParameter("CustomerLevelID",entity.CustomerLevelID),
-                new SqlParameter("ConnectDetail",entity.ConnectDetail),
-                new SqlParameter("CreateTime",entity.CreateTime),
-                new SqlParameter("CorporationID",entity.CorporationID)
+                new SqlParameter("@CustomerID",entity.CustomerID),
+                new SqlParameter("@CustomerName",entity.CustomerName),
+                new SqlParameter("@CustomerPhone",entity.CustomerPhone),
+                new SqlParameter("@ConnectUserID",entity.ConnectUserID),
+                new SqlParameter("@ConnectUser",entity.ConnectUser),
+                new SqlParameter("@FollowTime",entity.FollowTime),
+                new SqlParameter("@ConnectwayID",entity.ConnectwayID),
+                new SqlParameter("@CustomerLevelID",entity.CustomerLevelID),
+                new SqlParameter("@ConnectDetail",entity.ConnectDetail),
+                new SqlParameter("@CreateTime",entity.CreateTime),
+                new SqlParameter("@CorporationID",entity.CorporationID)
             };
             entity.ID = DataConvert.SafeInt(SqlHelper.ExecuteScalar(_con, CommandType.Text, sql, p));
             return entity.ID;

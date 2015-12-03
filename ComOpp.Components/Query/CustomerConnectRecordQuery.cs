@@ -8,7 +8,7 @@ namespace ComOpp.Components
     public class CustomerConnectRecordQuery : IQuery
     {
         private string _column = "*";
-        private string _tableName = "ComOpp_CustomerConnectRecord";
+        private string _tableName = "ViewCustomerConnectRecord";
         private string _orderby = " ID desc";
 
         #region IQuery 成员
@@ -65,6 +65,7 @@ namespace ComOpp.Components
         public int CustomerLevelID { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+        public string CanviewGroupIds { get; set; }
         /// <summary>
         /// 生成where
         /// </summary>
@@ -103,6 +104,10 @@ namespace ComOpp.Components
             if (EndTime.HasValue)
             {
                 query.Add(string.Format("[CreateTime] < '{0}' ", EndTime.Value.ToString("yyyy-MM-dd HH:mm")));
+            }
+            if (!string.IsNullOrEmpty(CanviewGroupIds))
+            {
+                query.Add(string.Format("[PowerGroupID] IN ({0})", CanviewGroupIds));
             }
             return string.Join(" AND ", query);
 

@@ -28,6 +28,8 @@ namespace ComOpp.BackAdmin.chance
                 int page = GetInt("page", 1);
                 int rows = GetInt("rows", 100);
                 int corpid = GetInt("corpid", 0);
+                int corp = GetInt("corp", 0);
+                if (corp > 0) corpid = corp;
                 int state = GetInt("state", 0);
                 int issearch = GetInt("issearch", 0);
                 int lurkstate = GetInt("lurkstate", 0);
@@ -73,7 +75,7 @@ namespace ComOpp.BackAdmin.chance
                         list = list.FindAll(l => l.LurkStatus == lurkstate);
                         list = list.FindAll(l => l.CheckStatus == checkstate);
                     }
-                    if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员)
+                    if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员 && lurkstate == 0 && checkstate == 0)
                     {
                         if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))
                         {
@@ -305,6 +307,8 @@ namespace ComOpp.BackAdmin.chance
                             break;
                     }
                 }
+                else
+                    list = list.OrderByDescending(l => l.PostTime).ToList();
 
                 int total = list.Count;
                 int maxpage = list.Count / rows + (list.Count % rows == 0 ? 0 : 1);

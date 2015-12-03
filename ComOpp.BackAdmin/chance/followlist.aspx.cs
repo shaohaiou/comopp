@@ -56,6 +56,13 @@ namespace ComOpp.BackAdmin.chance
                     query.StartTime = DataConvert.SafeDate(starttime);
                 if (!string.IsNullOrEmpty(endtime))
                     query.EndTime = DataConvert.SafeDate(endtime);
+                if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员)
+                {
+                    if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))
+                    {
+                        query.CanviewGroupIds = CurrentPowerGroup.CanviewGroupIds;
+                    }
+                }
 
                 List<CustomerConnectRecordInfo> list = CustomerConnectRecords.Instance.GetList(query, page, rows, ref total);
 

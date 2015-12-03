@@ -640,7 +640,7 @@
                     $("span.fieldselect").show();
                     $("#keywords_select").combobox({
                         method: 'get',
-                        valueField: 'uid',
+                        valueField: 'id',
                         textField: 'realnameandgroupname',
                         url: "/ajax/getsearchlist.aspx?action=userlist&corpid=" + corpid,
                         onLoadSuccess: function () {

@@ -18,6 +18,7 @@ namespace ComOpp.Components
             Owner = string.Empty;
             TracktagID = string.Empty;
             Tracktag = string.Empty;
+            VisitTime = string.Empty;
         }
 
         [JsonProperty("id")]

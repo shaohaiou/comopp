@@ -2,69 +2,78 @@
 
 <!--综合查询 列表框-->
 <div id="wrap">
-<!--综合查询 操作按钮-->
-<div id="toolb" style="padding:0;height:auto">
-<div id="schlist" class="schlist" style="display:block;">
-<form>
-<%if (Admin.Administrator)
-          {%>
-        <div class="schlist">
-            <div style="padding-top: 1px; line-height: 28px;">
+    <!--综合查询 操作按钮-->
+    <div id="toolb" style="padding: 0; height: auto">
+        <div id="schlist" class="schlist" style="display: block;">
+            <form runat="server">
+            <div style="padding: 6px 0; border-top: 1px #bbb solid;">
                 <label>
-                    公司：</label>
-                <asp:DropDownList runat="server" ID="ddlCorporationSearch" AutoPostBack="true">
-                </asp:DropDownList>
-            </div>
-        </div>
-        <%} %>
-<div style="padding:6px 0;border-top:1px #bbb solid;">
-<label>搜索条件：</label><select id="So_Field" panelHeight="auto" style="width:100px">
-                <option value="uname">客户姓名</option>
-                <option value="phone">客户电话</option>
-                <option value="weixin">微信</option>
-                <option value="ordernum">订单号</option>
-                <option value="series">拟购车系</option>
-                <option value="customerlevel">追踪级别</option>
-                <option value="infotype">信息类型</option>
-                <option value="infosource">信息来源</option>
-                <option value="connectway">追踪方式</option>
-                <option value="giveupcause">战败原因</option>
-                <option value="paymentway">支付方式</option>
-                <option value="ibuytime">拟购时间</option>
-                <option value="tracktag">线索标签</option>
-                <option value="followalarm">追踪报警</option>
-                <option value="arrive">是否到店</option>
-                <option value="iseries">选购车系</option>
-                <option value="owneruid">线索所有人</option>
-                <option value="mpuid">市场专员</option>
-                <option value="dccuid">DCC专员</option>
-                <option value="exuid">展厅专员</option>
-                <option value="dsuid">直销专员</option>
-                <option value="state">线索状态</option>
-</select>
-<span class="fieldtext"><input id="textin" name="keywords" class="textin" type="text" value="" style="width:120px" />&nbsp;</span>
-                <span class="fieldselect" style="display:none"><input class="easyui-combobox" name="keywords_select" id="keywords_select" style="width:120px">&nbsp;</span>
-                <a class="addfilter-link" onclick="Core.Easyui.Action('addfilter',this);" style="margin-right:5px;">添加条件</a>
-<select class="easyui-combobox" id="So_Time" panelHeight="auto" style="width:85px">
-                <option value="posttime">提交时间</option>
-                <option value="invitetime">预约时间</option>
-                <option value="dateline">建档时间</option>
-                <option value="arrivetime">客户来店时间</option>
-                <option value="endtime">预订成交时间</option>
-                <option value="delivertime">提车时间</option>
-</select>	
-<input class="easyui-datebox" name="form[starttime]" style="width:90px;">&nbsp;至&nbsp;<input class="easyui-datebox" name="form[endtime]" style="width:90px">
-<a onclick="return Core.Easyui.Form(this);" class="easyui-linkbutton" style="margin-left:20px;">确定</a>
-                <div id="GjSearch" style="margin-top:6px;height:24px;overflow:hidden">
-                    <label>筛选条件：</label><span style="color:#f96120;">最多只能增加5个筛选条件</span>
+                    搜索条件：</label><select id="So_Field" panelheight="auto" style="width: 100px">
+                        <option value="uname">客户姓名</option>
+                        <option value="phone">客户电话</option>
+                        <option value="weixin">微信</option>
+                        <option value="ordernum">订单号</option>
+                        <option value="series">拟购车系</option>
+                        <option value="customerlevel">追踪级别</option>
+                        <option value="infotype">信息类型</option>
+                        <option value="infosource">信息来源</option>
+                        <option value="connectway">追踪方式</option>
+                        <option value="giveupcause">战败原因</option>
+                        <option value="paymentway">支付方式</option>
+                        <option value="ibuytime">拟购时间</option>
+                        <option value="tracktag">线索标签</option>
+                        <option value="followalarm">追踪报警</option>
+                        <option value="arrive">是否到店</option>
+                        <option value="iseries">选购车系</option>
+                        <option value="owneruid">线索所有人</option>
+                        <option value="mpuid">市场专员</option>
+                        <option value="dccuid">DCC专员</option>
+                        <option value="exuid">展厅专员</option>
+                        <option value="dsuid">直销专员</option>
+                        <option value="state">线索状态</option>
+                    </select>
+                <span class="fieldtext">
+                    <input id="textin" name="keywords" class="textin" type="text" value="" style="width: 120px" />&nbsp;</span>
+                <span class="fieldselect" style="display: none">
+                    <input class="easyui-combobox" name="keywords_select" id="keywords_select" style="width: 120px">&nbsp;</span>
+                <a class="addfilter-link" onclick="Core.Easyui.Action('addfilter',this);" style="margin-right: 5px;">
+                    添加条件</a>
+                <select class="easyui-combobox" id="So_Time" panelheight="auto" style="width: 85px">
+                    <option value="posttime">提交时间</option>
+                    <option value="invitetime">预约时间</option>
+                    <option value="dateline">建档时间</option>
+                    <option value="arrivetime">客户来店时间</option>
+                    <option value="endtime">预订成交时间</option>
+                    <option value="delivertime">提车时间</option>
+                </select>
+                <input class="easyui-datebox" name="form[starttime]" style="width: 90px;">&nbsp;至&nbsp;<input
+                    class="easyui-datebox" name="form[endtime]" style="width: 90px">
+                <a onclick="return Core.Easyui.Form(this);" class="easyui-linkbutton" style="margin-left: 20px;">
+                    确定</a>
+                <div id="GjSearch" style="margin-top: 6px; height: 24px; overflow: hidden; position: relative;">
+                    <label>
+                        筛选条件：</label><span style="color: #f96120;">最多只能增加5个筛选条件</span>
+                    <%if (Admin.Administrator)
+                      {%>
+                    <div class="schlist" style="position: absolute; top: 0; left: 600px;">
+                        <div style="padding-top: 1px; line-height: 28px;">
+                            <label>
+                                公司：</label>
+                            <asp:dropdownlist runat="server" id="ddlCorporationSearch">
+                            </asp:dropdownlist>
+                        </div>
+                    </div>
+                    <%} %>
                 </div>
-</div>
-</form>
-</div>
-<div class="aSearch"></div>
-</div>
-<!--综合查询列表-->
-<table id="datagrid"></table>
+            </div>
+            </form>
+        </div>
+        <div class="aSearch">
+        </div>
+    </div>
+    <!--综合查询列表-->
+    <table id="datagrid">
+    </table>
 </div>
 <script type="text/javascript">
     var corpid =0;
@@ -164,7 +173,7 @@
     });
     Core.Easyui.Form = function (o) {
         var form = $(o).parents('form');
-        var p = { "sotime": form.find("#So_Time").combobox('getValue'), "starttime": form.find("input[name='form[starttime]']").val(), "endtime": form.find("input[name='form[endtime]']").val() };
+        var p = { <%if (Admin.Administrator){%>"corp":corpid,<%} %>"sotime": form.find("#So_Time").combobox('getValue'), "starttime": form.find("input[name='form[starttime]']").val(), "endtime": form.find("input[name='form[endtime]']").val() };
         if (form.find("a.myfilter-link").length) {
             form.find("a.myfilter-link").each(function (index, element) {
                 p[$(this).attr('data-key')] = $(this).attr('data-value');
@@ -269,7 +278,7 @@
                     $("span.fieldselect").show();
                     $("#keywords_select").combobox({
                         method: 'get',
-                        valueField: 'uid',
+                        valueField: 'id',
                         textField: 'realnameandgroupname',
                         url: "/ajax/getsearchlist.aspx?action=userlist&corpid=" + corpid,
                         onLoadSuccess: function () {
@@ -278,6 +287,11 @@
                     });
                 }
             }
+
+        });
+        $("#ddlCorporationSearch").change(function(){
+            corpid = $("#ddlCorporationSearch option:selected").val();
+            Core.Easyui.Form(this);
         });
 
         Core.Easyui.get('/chance/chancelist.aspx?corpid=' + corpid + "&issearch=1");

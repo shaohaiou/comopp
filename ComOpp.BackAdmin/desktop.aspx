@@ -26,6 +26,14 @@
     </style>
 </head>
 <body style="padding: 10px">
+    <%if (Admin.Administrator)
+      {%>
+    <form runat="server">
+    <div style="padding: 10px 0px;">
+    <asp:DropDownList runat="server" ID="ddlCorporation" AutoPostBack="true" OnSelectedIndexChanged="ddlCorporation_SelectedIndexChanged"></asp:DropDownList>
+    </div>
+    </form>
+    <%} %>
     <div class="m_contain">
         <div class="top_tit">
             商机管理</div>
@@ -35,14 +43,14 @@
                     <div class="mynews clear">
                         <p class="ic2 fl">
                             <i></i>共有<span class="red"><%=VoluntaryNum%></span>条线索可主动转出</p>
-                        <a class="fr" href="chance/chancemg.aspx?archivemove=1">点击查看</a></div>
+                        <a class="fr" href="chance/chancemg.aspx?corpid=<%=corpid %>&archivemove=1">点击查看</a></div>
                 </div>
                 <div style="width: 300px; overflow: hidden; float: left; border-left: 1px solid #ccc;
                     margin-left: 30px; padding-left: 30px">
                     <div class="mynews clear">
                         <p class="ic2 fl">
                             <i></i>共有<span class="red"><%=ForcedNum%></span>条线索7日内将强制转出</p>
-                        <a class="fr" href="chance/chancemg.aspx?archivemove=2">点击查看</a></div>
+                        <a class="fr" href="chance/chancemg.aspx?corpid=<%=corpid %>&archivemove=2">点击查看</a></div>
                 </div>
             </div>
             <div style="clear: both">
@@ -50,14 +58,14 @@
                     <div class="mynews clear">
                         <p class="ic2 fl">
                             <i></i>共有<span class="red"><%=ConnecttimeoutNum %></span>条线索追踪超时</p>
-                        <a class="fr" href="chance/chancemg.aspx?followalarm=2">点击查看</a></div>
+                        <a class="fr" href="chance/chancemg.aspx?corpid=<%=corpid %>&followalarm=2">点击查看</a></div>
                 </div>
                 <div style="width: 300px; overflow: hidden; float: left; border-left: 1px solid #ccc;
                     margin-left: 30px; padding-left: 30px">
                     <div class="mynews clear">
                         <p class="ic2 fl">
                             <i></i>共有<span class="red"><%=ConnecttimeoutingNum%></span>条线索24小时内将追踪超时</p>
-                        <a class="fr" href="chance/chancemg.aspx?followalarm=1">点击查看</a></div>
+                        <a class="fr" href="chance/chancemg.aspx?corpid=<%=corpid %>&followalarm=1">点击查看</a></div>
                 </div>
             </div>
         </div>
