@@ -23,6 +23,24 @@ namespace ComOpp.BackAdmin.chance
 
         protected CustomerInfo CurrentCustomerInfo { get; set; }
 
+        protected string CurrentLevelIntroduce
+        {
+            get
+            {
+                if (CurrentCustomerInfo != null && CurrentCustomerInfo.LastCustomerLevelID > 0)
+                {
+                    CustomerLevelInfo level = CustomerLevels.Instance.GetModel(CurrentCustomerInfo.LastCustomerLevelID, true);
+                    if (level != null)
+                    {
+                        if (level.Alarmday == 0) return "订车客户";
+                        if (level.Alarmday <= 3) return "高意向客户";
+                        return level.Alarmday + "天内购车";
+                    }
+                }
+                return string.Empty;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPost())
@@ -105,6 +123,19 @@ namespace ComOpp.BackAdmin.chance
         protected string SetCustomerLevelSel(object value)
         {
             return (CurrentCustomerInfo != null && CurrentCustomerInfo.LastCustomerLevelID == DataConvert.SafeInt(value)) ? "selected=\"true\"" : string.Empty;
+        }
+
+        protected string SetCustomerLevelIntroduce(object value)
+        {
+            int id = DataConvert.SafeInt(value);
+            CustomerLevelInfo level = CustomerLevels.Instance.GetModel(id, true);
+            if (level != null)
+            {
+                if (level.Alarmday == 0) return "订车客户";
+                if (level.Alarmday <= 3) return "高意向客户";
+                return level.Alarmday + "天内购车";
+            }
+            return string.Empty;
         }
 
         protected string SetUserSel(object value)

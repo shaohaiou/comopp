@@ -68,8 +68,6 @@ namespace ComOpp.BackAdmin.chance
 
                 int maxpage = total / rows + (total % rows == 0 ? 0 : 1);
 
-                list = list.Skip((page - 1) * rows).Take(rows).ToList<CustomerConnectRecordInfo>();
-
                 Response.Write("{\"count\":" + list.Count + ",\"total\":" + total + ",\"maxpage\":" + maxpage + ",\"rows\":" + Serializer.SerializeJson(list) + "}");
             }
         }

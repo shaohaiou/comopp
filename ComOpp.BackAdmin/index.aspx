@@ -39,7 +39,7 @@
                 <%if (!Admin.Administrator)
                   { %><%= Admin.Corporation %>｜<%} %>商机管理系统(销售)</a>
             <ul class="litNav fr">
-                <li style="border-left: 0;"><a href="center/profile.aspx">个人中心</a></li>
+                <li style="border-left: 0;"><a href="center/desktop.aspx">个人中心</a></li>
                 <li>
                     <%=Admin.Realname %></li>
                 <li style="display: none"><a href="">消息<i>（1）</i></a></li>

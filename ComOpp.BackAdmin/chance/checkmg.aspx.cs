@@ -53,7 +53,7 @@ namespace ComOpp.BackAdmin.chance
                 SetSelectedByValue(ddlCorporationSearch, GetString("corpid"));
             }
             else
-                Response.Redirect("potentialmg.aspx?corpid=" + ddlCorporationSearch.SelectedValue);
+                Response.Redirect("checkmg.aspx?corpid=" + ddlCorporationSearch.SelectedValue);
         }
     }
 }

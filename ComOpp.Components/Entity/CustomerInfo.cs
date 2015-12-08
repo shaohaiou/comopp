@@ -466,22 +466,25 @@ namespace ComOpp.Components
         {
             get
             {
-                if (LastCustomerLevelID == 0)
+                if (CustomerStatus <= (int)ComOpp.Components.CustomerStatus.追踪_促成)
                 {
-                    DateTime createtime = DateTime.Parse(CreateTime);
-                    if (DateTime.Now.Subtract(createtime).TotalDays <= 6) return "0";
-                    if (DateTime.Now.Subtract(createtime).TotalDays <= 7) return "1";
-                    else return "2";
-                }
-                else
-                {
-                    CustomerLevelInfo lastcustomerlevel = CustomerLevels.Instance.GetModel(LastCustomerLevelID, true);
-                    if (lastcustomerlevel != null)
+                    if (LastCustomerLevelID == 0)
                     {
-                        DateTime lastconnecttime = DateTime.Parse(LastConnectTime);
-                        if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= (lastcustomerlevel.Alarmday - 1) || lastcustomerlevel.Alarmday == 0) return "0";
-                        if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= lastcustomerlevel.Alarmday) return "1";
+                        DateTime createtime = DateTime.Parse(CreateTime);
+                        if (DateTime.Now.Subtract(createtime).TotalDays <= 6) return "0";
+                        if (DateTime.Now.Subtract(createtime).TotalDays <= 7) return "1";
                         else return "2";
+                    }
+                    else
+                    {
+                        CustomerLevelInfo lastcustomerlevel = CustomerLevels.Instance.GetModel(LastCustomerLevelID, true);
+                        if (lastcustomerlevel != null)
+                        {
+                            DateTime lastconnecttime = DateTime.Parse(LastConnectTime);
+                            if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= (lastcustomerlevel.Alarmday - 1) || lastcustomerlevel.Alarmday == 0) return "0";
+                            if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= lastcustomerlevel.Alarmday) return "1";
+                            else return "2";
+                        }
                     }
                 }
                 return string.Empty;

@@ -27,9 +27,9 @@
     <div class="myc_tit">
         <div class="mytopTit" style="">
             <div class="topTit_left">
-                <img src="../images/logo.jpg" alt="" /><span><a href="/center/profile.aspx" style="color: #2b98c4">个人中心</a></span></div>
+                <img src="../images/logo.jpg" alt="" /><span><a href="/center/desktop.aspx" style="color: #2b98c4">个人中心</a></span></div>
             <div class="topTit_right" style="margin: 0;">
-                <a href="../index.aspx">首页</a>| <a href="../logout.aspx">[<%=Admin.Realname %>]退出</a></div>
+                <a href="/index.aspx">首页</a>|<a href="../logout.aspx">[<%=Admin.Realname %>]退出</a></div>
         </div>
     </div>
     <div class="form_box">
