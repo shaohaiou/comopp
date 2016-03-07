@@ -1172,6 +1172,7 @@ namespace ComOpp.DALSQLServer
             )VALUES(
                 @Name
                 ,@CorporationID
+                ,@DataLevel
                 ,(SELECT ISNULL(MAX([Sort]),0) + 1 FROM ComOpp_GiveupCause WHERE [CorporationID] = @CorporationID)
             )";
             SqlParameter[] p = 
@@ -1659,6 +1660,7 @@ namespace ComOpp.DALSQLServer
                 ,[PlaceOrderTime] = @PlaceOrderTime
                 ,[PicupcarTime] = @PicupcarTime
                 ,[GiveupCauseID] = @GiveupCauseID
+                ,[FailureCauseAnalyze] = @FailureCauseAnalyze
                 ,[SystemRemark] = @SystemRemark
                 ,[CheckStatus] = @CheckStatus
                 ,[LurkStatus] = @LurkStatus
@@ -1712,6 +1714,7 @@ namespace ComOpp.DALSQLServer
                 new SqlParameter("@PlaceOrderTime",entity.PlaceOrderTime),
                 new SqlParameter("@PicupcarTime",entity.PicupcarTime),
                 new SqlParameter("@GiveupCauseID",entity.GiveupCauseID),
+                new SqlParameter("@FailureCauseAnalyze",entity.FailureCauseAnalyze),
                 new SqlParameter("@SystemRemark",entity.SystemRemark),
                 new SqlParameter("@CheckStatus",entity.CheckStatus),
                 new SqlParameter("@LurkStatus",entity.LurkStatus),
