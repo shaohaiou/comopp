@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>车云|汽车商机管理系统V2.0</title>
+    <title>车云|汽车销售客户管理系统V2.0</title>
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../plugins/jquery-easyui-1.3.6/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="../plugins/jquery-easyui-1.3.6/themes/icon.css" />
@@ -21,10 +21,10 @@
 </head>
 <body>
     <div class="Tab">
-        <a href="basesetting.aspx">基础设置</a> <a href="customerlevelmg.aspx">客户等级</a> <a href="infotypemg.aspx">
-            信息类型</a> <a href="infosourcemg.aspx">信息来源</a> <a href="connectwaymg.aspx">追踪方式</a>
-        <a href="giveupcausemg.aspx">放弃原因</a> <a href="paymentwaymg.aspx">支付方式</a> <a href="ibuytimemg.aspx">
-            拟购时间</a> <a href="tracktagmg.aspx">线索标签</a> <a href="archivesetting.aspx" class="selected">
+        <a href="basesetting.aspx">基础设置</a> <a href="customerlevelmg.aspx?corpid=<%=GetInt("corpid") %>">客户等级</a> <a href="infotypemg.aspx?corpid=<%=GetInt("corpid") %>">
+            信息类型</a> <a href="infosourcemg.aspx?corpid=<%=GetInt("corpid") %>">信息来源</a> <a href="connectwaymg.aspx?corpid=<%=GetInt("corpid") %>">追踪方式</a>
+        <a href="giveupcausemg.aspx?corpid=<%=GetInt("corpid") %>">放弃原因</a> <a href="paymentwaymg.aspx?corpid=<%=GetInt("corpid") %>">支付方式</a> <a href="ibuytimemg.aspx?corpid=<%=GetInt("corpid") %>">
+            拟购时间</a> <a href="tracktagmg.aspx?corpid=<%=GetInt("corpid") %>">线索标签</a> <a href="archivesetting.aspx?corpid=<%=GetInt("corpid") %>" class="selected">
                 转出设置</a>
     </div>
     <div>

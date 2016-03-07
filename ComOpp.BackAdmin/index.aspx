@@ -5,7 +5,7 @@
 <head runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>红旭集团商机管理系统V1.0</title>
+    <title>红旭集团销售客户管理系统V1.0</title>
     <link rel="stylesheet" type="text/css" href="plugins/jquery-easyui-1.3.6/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="plugins/jquery-easyui-1.3.6/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -37,7 +37,7 @@
         <div class="header">
             <a class="sysname fl" href="index.aspx">
                 <%if (!Admin.Administrator)
-                  { %><%= Admin.Corporation %>｜<%} %>商机管理系统(销售)</a>
+                  { %><%= Admin.Corporation %>｜<%} %>销售客户管理系统</a>
             <ul class="litNav fr">
                 <li style="border-left: 0;"><a href="center/desktop.aspx">个人中心</a></li>
                 <li>

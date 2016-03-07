@@ -104,11 +104,11 @@ namespace ComOpp.BackAdmin.ajax
                 }
                 else if (action == "followalarm")
                 {
-                    Response.Write("[{\"id\":\"0\",\"name\",\"正常\"},{\"id\":\"1\",\"name\",\"正常(24小时内超时)\"},{\"id\":\"2\",\"name\",\"追踪超时\"}]");
+                    Response.Write("[{\"id\":\"0\",\"name\":\"正常\"},{\"id\":\"1\",\"name\":\"正常(24小时内超时)\"},{\"id\":\"2\",\"name\":\"追踪超时\"}]");
                 }
                 else if (action == "arrive")
                 {
-                    Response.Write("[{\"id\":\"0\",\"name\",\"未到店\"},{\"id\":\"1\",\"name\",\"已到店\"}]");
+                    Response.Write("[{\"id\":\"0\",\"name\":\"未到店\"},{\"id\":\"1\",\"name\":\"已到店\"}]");
                 }
                 else if (action == "state")
                 {
@@ -146,7 +146,7 @@ namespace ComOpp.BackAdmin.ajax
                 }
                 else if (action == "archivemove")
                 {
-                    Response.Write("[{\"id\":\"1\",\"name\",\"可主动转出\"},{\"id\":\"2\",\"name\",\"7日内系统将强制转出\"}]");
+                    Response.Write("[{\"id\":\"1\",\"name\":\"可主动转出\"},{\"id\":\"2\",\"name\":\"7日内系统将强制转出\"}]");
                 }
             }
         }

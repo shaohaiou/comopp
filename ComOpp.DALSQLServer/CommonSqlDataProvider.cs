@@ -1773,7 +1773,7 @@ namespace ComOpp.DALSQLServer
 
         public override void SetCustomerLevel(int id, int level)
         {
-            string sql = "UPDATE ComOpp_Customer SET [CustomerLevelID] = @CustomerLevelID WHERE [ID] = @ID";
+            string sql = "UPDATE ComOpp_Customer SET [LastCustomerLevelID] = @CustomerLevelID WHERE [ID] = @ID";
             SqlParameter[] p = 
             { 
                 new SqlParameter("@CustomerLevelID",level),

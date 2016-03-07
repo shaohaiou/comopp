@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>密码修改-红旭集团商机管理系统V1.0</title>
+    <title>密码修改-红旭集团销售客户管理系统V1.0</title>
     <link rel="stylesheet" type="text/css" href="../css/mycommon.css" />
     <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="../js/Validform_v5.3.js"></script>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <p class="copystyle">
-            红旭集团商机管理系统 V1.0 Powered by <a href="http://www.hongxu.cn">www.hongxu.cn</a>
+            红旭集团销售客户管理系统 V1.0 Powered by <a href="http://www.hongxu.cn">www.hongxu.cn</a>
         2015-2020
     </div>
 </body>

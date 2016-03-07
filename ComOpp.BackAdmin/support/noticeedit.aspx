@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>话术管理-红旭集团商机管理系统V1.0</title>
+    <title>话术管理-红旭集团销售客户管理系统V1.0</title>
     <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <link rel="stylesheet" type="text/css" href="../umeditor1_2_2/themes/default/css/umeditor.min.css" />
     <script type="text/javascript" src="../umeditor1_2_2/third-party/jquery.min.js"></script>
