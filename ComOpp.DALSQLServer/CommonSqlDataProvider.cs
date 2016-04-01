@@ -1619,6 +1619,7 @@ namespace ComOpp.DALSQLServer
             string sql = @"
                 UPDATE ComOpp_Customer SET
                 [Name] = @Name
+                ,[Phone] = @Phone
                 ,[BackupPhone] = @BackupPhone
                 ,[ProvinceID] = @ProvinceID
                 ,[CityID] = @CityID
@@ -1673,6 +1674,7 @@ namespace ComOpp.DALSQLServer
             {
                 new SqlParameter("@ID",entity.ID),
                 new SqlParameter("@Name",entity.Name),
+                new SqlParameter("@Phone",entity.Phone),
                 new SqlParameter("@BackupPhone",entity.BackupPhone),
                 new SqlParameter("@ProvinceID",entity.ProvinceID),
                 new SqlParameter("@CityID",entity.CityID),
