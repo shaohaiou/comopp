@@ -177,16 +177,16 @@ $(function () {
 
 })
 /*点击商机管理分类下的综合查询 弹出数据页面*/
-function showData(url) {
+function showData(url,titletext,width,height) {
     //dialog('800','400','潜客搜索','html/show_data.html');
     $('body').append('<div id="dialogSearch"></div>');
     $('#dialogSearch').dialog({
-        title: '综合查询',
-        width: '800',
-        height: '480',
+        title: titletext,
+        width: width,
+        height: height,
         cache: false,
         modal: false,
-        href: url,
+        href: url + "?d=" + new Date(),
         onClose: function () {
             $(this).dialog('destroy');
             $('#dialogSearch').remove();

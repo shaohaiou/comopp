@@ -283,6 +283,9 @@
     <Content Include="umeditor1_2_2\umeditor.config.js" />
     <Content Include="umeditor1_2_2\umeditor.js" />
     <Content Include="umeditor1_2_2\umeditor.min.js" />
+    <Content Include="usereport.aspx" />
+    <Content Include="user\loginrecordlist.aspx" />
+    <Content Include="user\loginrecordmg.aspx" />
     <Content Include="user\powergroupedit.aspx" />
     <Content Include="user\powergrouplist.aspx" />
     <Content Include="user\powergroupmg.aspx" />
@@ -921,6 +924,27 @@
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="umeditor1_2_2\net\Uploader.cs" />
+    <Compile Include="usereport.aspx.cs">
+      <DependentUpon>usereport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usereport.aspx.designer.cs">
+      <DependentUpon>usereport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\loginrecordlist.aspx.cs">
+      <DependentUpon>loginrecordlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\loginrecordlist.aspx.designer.cs">
+      <DependentUpon>loginrecordlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\loginrecordmg.aspx.cs">
+      <DependentUpon>loginrecordmg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\loginrecordmg.aspx.designer.cs">
+      <DependentUpon>loginrecordmg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\powergroupedit.aspx.cs">
       <DependentUpon>powergroupedit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

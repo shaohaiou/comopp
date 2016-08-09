@@ -138,5 +138,19 @@ namespace ComOpp.Components
         }
 
         #endregion
+
+        #region 登录记录管理
+
+        public void AddLoginRecord(LoginRecordInfo lr)
+        {
+            CommonDataProvider.Instance().AddLoginRecord(lr);
+        }
+
+        public List<LoginRecordInfo> GetLoginRecord(int uid)
+        {
+            return CommonDataProvider.Instance().GetLoginRecord(uid);
+        }
+
+        #endregion
     }
 }

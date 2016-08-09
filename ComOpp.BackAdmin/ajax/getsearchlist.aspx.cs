@@ -31,6 +31,17 @@ namespace ComOpp.BackAdmin.ajax
                 {
                     List<AdminInfo> list = Admins.Instance.GetAllAdmins();
                     list = list.FindAll(l => l.CorporationID == corpid);
+                    if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员)
+                    {
+                        if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))
+                        {
+                            string[] powers = CurrentPowerGroup.CanviewGroupIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            list = list.FindAll(l => l.ID == AdminID || powers.Contains(l.PowerGroupID.ToString()));
+                        }
+                        else
+                            list = list.FindAll(l => l.ID == AdminID);
+                    }
+
                     list = list.OrderBy(l => (int)l.UserRole).ThenBy(l => l.UserName).ToList();
 
                     Response.Write(Serializer.SerializeJson(list));

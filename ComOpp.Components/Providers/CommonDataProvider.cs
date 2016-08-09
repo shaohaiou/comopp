@@ -182,6 +182,28 @@ namespace ComOpp.Components
 
         #endregion
 
+        #region 登录记录管理
+
+        public abstract void AddLoginRecord(LoginRecordInfo lr);
+
+        public abstract List<LoginRecordInfo> GetLoginRecord(int uid);
+
+        protected LoginRecordInfo PopulateLoginRecord(IDataReader reader)
+        {
+            LoginRecordInfo entity = new LoginRecordInfo() 
+            {
+                ID = (int)reader["ID"],
+                AdminID = (int)reader["AdminID"],
+                LastLoginIP = reader["LastLoginIP"] as string,
+                LoginTime = DataConvert.SafeDate(reader["LoginTime"]),
+                UserName = reader["UserName"] as string
+            };
+
+            return entity;
+        }
+
+        #endregion
+
         #region 账户组
 
         public abstract List<PowerGroupInfo> GetPowerGroupList();

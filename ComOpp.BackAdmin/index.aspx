@@ -18,13 +18,26 @@
     <script type="text/javascript" src="js/layout.js"></script>
     <script type="text/javascript" src="js/public.core.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/cpcparam.js" charset="utf-8"></script>
+    <%--<script type="text/javascript" src="js/cpcparam.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/cpccommon.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/cpcdriver.js" charset="utf-8"></script>
     <script type="text/javascript">
         if (self.location != top.location) {
             top.location.href = self.location;
         }
-    </script>
+        var qnviccub = null;
+        Sys.link = "http://<%=CurrentDomain %>/";
+        var Sphone = {
+            openDeviceSucc: false, //打开设备 0-失败 1-成功
+            device: false, //打开并启用 0-失败 1-成功
+            pre: "",
+            driver: "http://<%=CurrentDomain %>/att/driver.rar",
+            phone: "http://<%=CurrentDomain %>/index/common.phone",
+            auth: "http://<%=CurrentDomain %>/index/common.auth"
+        };
+        cpcxDevice.config("loader", { "pre": "", "recorddir": "" });
+        cpcxDevice.config("log.link", "http://<%=CurrentDomain %>/chance/callcenter/index/phone.call");
+    </script>--%>
 </head>
 <body class="easyui-layout">
     <div>
@@ -83,7 +96,7 @@
                         <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "综合查询"))
                           { %>
                         <p>
-                            <a href="javascript:void(0);" onclick="showData('chance/archivemerge.aspx');">综合查询</a></p>
+                            <a href="javascript:void(0);" onclick="showData('chance/archivemerge.aspx','综合查询',800,480);">综合查询</a></p>
                         <%} %>
                         <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "追踪流水"))
                           { %>
@@ -137,6 +150,11 @@
                           { %>
                         <p>
                             <a href="user/usermg.aspx" target="riframe">账户管理</a></p>
+                        <%} %>
+                        <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "登录记录"))
+                          { %>
+                        <p>
+                            <a href="javascript:void(0);" onclick="showData('user/loginrecordmg.aspx','登录记录',520,450);">登录记录</a></p>
                         <%} %>
                     </dd>
                     <%} %>

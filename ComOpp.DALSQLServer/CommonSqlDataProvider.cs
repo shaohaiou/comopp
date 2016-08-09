@@ -272,6 +272,52 @@ namespace ComOpp.DALSQLServer
 
         #endregion
 
+        #region 登录记录管理
+
+        public override void AddLoginRecord(LoginRecordInfo lr)
+        {
+            string sql = @"
+            INSERT INTO ComOpp_LoginRecord(
+                [AdminID]
+                ,[UserName]
+                ,[LastLoginIP]
+                ,[LoginTime]
+            ) VALUES (
+                @AdminID
+                ,@UserName
+                ,@LastLoginIP
+                ,@LoginTime
+            )";
+            SqlParameter[] p = 
+            {
+                new SqlParameter("@AdminID",lr.AdminID),
+                new SqlParameter("@UserName",lr.UserName),
+                new SqlParameter("@LastLoginIP",lr.LastLoginIP),
+                new SqlParameter("@LoginTime",lr.LoginTime)
+            };
+            SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, p);
+        }
+
+        public override List<LoginRecordInfo> GetLoginRecord(int uid)
+        {
+            string sql = @"SELECT * FROM ComOpp_LoginRecord WHERE [AdminID] = @AdminID";
+            SqlParameter[] p = 
+            {
+                new SqlParameter("@AdminID",uid)
+            };
+            List<LoginRecordInfo> list = new List<LoginRecordInfo>();
+            using (IDataReader reader = SqlHelper.ExecuteReader(_con, CommandType.Text, sql,p))
+            {
+                while (reader.Read())
+                {
+                    list.Add(PopulateLoginRecord(reader));
+                }
+            }
+            return list;
+        }
+
+        #endregion
+
         #region 账户组
 
         public override void AddPowerGroup(PowerGroupInfo entity)

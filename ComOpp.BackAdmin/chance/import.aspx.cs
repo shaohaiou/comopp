@@ -150,7 +150,7 @@ namespace ComOpp.BackAdmin.chance
                 if (headerRow.GetCell(i) == null || headerRow.GetCell(i).StringCellValue.Trim() == "")
                 {
                     // 如果遇到第一个空列，则不再继续向后读取
-                    cellCount = i + 1;
+                    cellCount = i + headerColIndex - 1;
                     break;
                 }
                 DataColumn column = new DataColumn(headerRow.GetCell(i).StringCellValue);

@@ -83,6 +83,16 @@ namespace ComOpp.Components
         }
 
         /// <summary>
+        /// 登录次数
+        /// </summary>
+        [JsonProperty("logintimes")]
+        public int LoginTimes
+        {
+            get { return GetInt("logintimes", 0); }
+            set { SetExtendedAttribute("logintimes", value.ToString()); }
+        }
+
+        /// <summary>
         /// 状态
         /// <para>1：正常；2：锁定</para>
         /// </summary>

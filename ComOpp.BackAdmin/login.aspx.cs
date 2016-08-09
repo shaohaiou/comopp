@@ -54,7 +54,16 @@ namespace ComOpp.BackAdmin
                         {
                             admin.LastLoginIP = WebHelper.GetClientsIP();
                             admin.LastLoginTime = DateTime.Now;
+                            admin.LoginTimes++;
                             Admins.Instance.UpdateAdmin(admin);
+                            LoginRecordInfo lr = new LoginRecordInfo()
+                            {
+                                AdminID = admin.ID,
+                                LastLoginIP = admin.LastLoginIP,
+                                LoginTime = DateTime.Now,
+                                UserName = admin.UserName
+                            };
+                            Admins.Instance.AddLoginRecord(lr);
                             Session[GlobalKey.SESSION_ADMIN] = admin;
                             ManageCookies.CreateCookie(GlobalKey.SESSION_ADMIN, id.ToString(), true, DateTime.Today.AddDays(1), HXContext.Current.CookieDomain);
                             Response.Redirect("index.aspx");

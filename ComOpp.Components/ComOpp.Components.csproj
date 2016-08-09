@@ -88,6 +88,7 @@
     <Compile Include="Entity\InfoSourceInfo.cs" />
     <Compile Include="Entity\InfoTypeInfo.cs" />
     <Compile Include="Entity\Job.cs" />
+    <Compile Include="Entity\LoginRecordInfo.cs" />
     <Compile Include="Entity\ModuleInfo.cs" />
     <Compile Include="Entity\NoticeInfo.cs" />
     <Compile Include="Entity\PaymentWayInfo.cs" />

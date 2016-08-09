@@ -203,7 +203,6 @@
             switch (value) { case 1: return "<i class='male' title='男'></i>"; break; case 2: return "<i class='female' title='女'></i>"; break; case 0: return '-'; break; }
         }},
         { field: 'phonevest', title: '号码归属地', width: 100, align: 'center', sortable: true },
-        { field: 'owner', title: '线索拥有者', width: 100, align: 'center', sortable: true },
         { field: 'infosource', title: '信息来源', width: 100, align: 'center', sortable: true },
         { field: 'infotype', title: '信息类型', width: 100, align: 'center', sortable: true },
         { field: 'tracktag', title: '标签', width: 100, align: 'center' },
@@ -218,7 +217,6 @@
         { field: 'lastconnectuser', title: '最后追踪人', width: 100, align: 'center' },
         { field: 'lastconnectdetail', title: '追踪情况', width: 120, align: 'center' },
         { field: 'reservationtime', title: '预约到店时间', width: 120, align: 'center', sortable: true},
-        { field: 'visittime', title: '客户来店时间', width: 120, align: 'center', sortable: true},
         { field: 'leavetime', title: '客户离店时间', width: 120, align: 'center', sortable: true},
         { field: 'visitduration', title: '接待时长', width: 80, align: 'center', formatter: function (value, row, index) {
             return Core.rule.isNumber('p.integer', value) ? value + '分钟' : '-';
@@ -283,7 +281,9 @@
             }},
             { field: 'name', title: '客户姓名', width: 80, align: 'center' },
             { field: 'phone', title: '客户电话', width: 90, align: 'center', sortable: true},
-            { field: 'ibuycarseries', title: '拟购车系', width: 100, align: 'center', sortable: true }
+            { field: 'ibuycarseries', title: '拟购车系', width: 100, align: 'center', sortable: true },
+            { field: 'owner', title: '线索拥有者', width: 100, align: 'center', sortable: true },
+            { field: 'visittime', title: '客户来店时间', width: 120, align: 'center', sortable: true }
         ]], 
         onSortColumn: function (sort, order) {
             try { Core.Easyui.Params.sort(sort, order); } catch (e) { }
