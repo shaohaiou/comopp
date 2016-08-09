@@ -80,6 +80,16 @@ namespace ComOpp.BackAdmin.user
                 {
                     List<PowerGroupInfo> plist = PowerGroups.Instance.GetList(true);
                     plist = plist.FindAll(l => l.CorporationID == Admin.CorporationID);
+                    if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员)
+                    {
+                        if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))
+                        {
+                            string[] powers = CurrentPowerGroup.CanviewGroupIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                            plist = plist.FindAll(l => l.ID == Admin.PowerGroupID || powers.Contains(l.ID.ToString()));
+                        }
+                        else
+                            plist = plist.FindAll(l => l.ID == Admin.PowerGroupID);
+                    }
                     ddlPowerGroupSearch.DataSource = plist;
                     ddlPowerGroupSearch.DataTextField = "GroupName";
                     ddlPowerGroupSearch.DataValueField = "ID";

@@ -50,7 +50,7 @@
         <div class="header">
             <a class="sysname fl" href="index.aspx">
                 <%if (!Admin.Administrator)
-                  { %><%= Admin.Corporation %>｜<%} %>销售客户管理系统</a>
+                  { %><%= Corporation.Name%>｜<%} %>销售客户管理系统</a>
             <ul class="litNav fr">
                 <li style="border-left: 0;"><a href="center/desktop.aspx">个人中心</a></li>
                 <li>
