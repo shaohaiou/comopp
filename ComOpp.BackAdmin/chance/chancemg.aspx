@@ -114,7 +114,7 @@
                     搜索条件：</label><select id="So_Field" panelheight="auto" style="width: 100px">
                         <option value="uname">客户姓名</option>
                         <option value="phone">客户电话</option>
-                        <option value="weixin">微信</option>
+                        <option value="weixin">微信</option>  
                         <option value="ordernum">订单号</option>
                         <option value="series">拟购车系</option>
                         <option value="customerlevel">追踪级别</option>
