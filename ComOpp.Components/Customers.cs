@@ -201,9 +201,9 @@ namespace ComOpp.Components
             return result;
         }
 
-        public void Delete(string ids, int corpid)
+        public void Delete(string ids, int corpid,int userid,string username)
         {
-            CommonDataProvider.Instance().DeleteCustomer(ids, corpid);
+            CommonDataProvider.Instance().DeleteCustomer(ids, corpid, userid, username);
         }
 
         public int Move(CustomerInfo entity)

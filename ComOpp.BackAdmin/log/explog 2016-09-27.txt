@@ -1,0 +1,40 @@
+﻿2016/9/27 15:13:05        正在中止线程。
+Source:ComOpp.Components
+TargetSite:Void PhoneVestUpdate()
+
+---- Stack Trace ----
+   ComOpp.Components.Customers.PhoneVestUpdate()
+       Customers.cs: line 0048, col 41, IL 0272
+
+
+====================================
+2016/9/27 15:47:07        正在中止线程。
+Source:ComOpp.Components
+TargetSite:Void PhoneVestUpdate()
+
+---- Stack Trace ----
+   ComOpp.Components.Customers.PhoneVestUpdate()
+       Customers.cs: line 0048, col 41, IL 0272
+
+
+====================================
+2016/9/27 17:02:27        Thread was being aborted.
+Source:ComOpp.Components
+TargetSite:Void PhoneVestUpdate()
+
+---- Stack Trace ----
+   ComOpp.Components.Customers.PhoneVestUpdate()
+       Customers.cs: line 0048, col 41, IL 0272
+
+
+====================================
+2016/9/27 17:29:15        正在中止线程。
+Source:ComOpp.Components
+TargetSite:Void PhoneVestUpdate()
+
+---- Stack Trace ----
+   ComOpp.Components.Customers.PhoneVestUpdate()
+       Customers.cs: line 0048, col 41, IL 0272
+
+
+====================================

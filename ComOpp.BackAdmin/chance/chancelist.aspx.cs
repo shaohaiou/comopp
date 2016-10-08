@@ -144,7 +144,7 @@ namespace ComOpp.BackAdmin.chance
                         if (!string.IsNullOrEmpty(starttime))
                             starttimevalue = DataConvert.SafeFloat(DataConvert.SafeDate(starttime).ToString("yyyyMMddHHmm"));
                         if (!string.IsNullOrEmpty(endtime))
-                            endtimevalue = DataConvert.SafeFloat(DataConvert.SafeDate(endtime).ToString("yyyyMMddHHmm"));
+                            endtimevalue = DataConvert.SafeFloat(DataConvert.SafeDate(endtime).AddDays(1).ToString("yyyyMMddHHmm"));
                         switch (sotime)
                         {
                             case "posttime":

@@ -753,7 +753,7 @@ namespace ComOpp.Components
 
         public abstract int UpdateCustomer(CustomerInfo entity);
 
-        public abstract void DeleteCustomer(string ids, int corpid);
+        public abstract void DeleteCustomer(string ids, int corpid,int userid,string username);
 
         public abstract int UpdateCustomerLastConnect(CustomerInfo entity);
 

@@ -1,4 +1,4 @@
-﻿2016/8/9 15:27:53        正在中止线程。
+﻿2016/9/13 10:32:53        Thread was being aborted.
 Source:ComOpp.Components
 TargetSite:Void PhoneVestUpdate()
 
@@ -8,7 +8,7 @@ TargetSite:Void PhoneVestUpdate()
 
 
 ====================================
-2016/8/9 15:57:40        正在中止线程。
+2016/9/13 10:41:16        正在中止线程。
 Source:ComOpp.Components
 TargetSite:Void PhoneVestUpdate()
 

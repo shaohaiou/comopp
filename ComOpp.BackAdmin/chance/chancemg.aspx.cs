@@ -141,7 +141,7 @@ namespace ComOpp.BackAdmin.chance
             if (!string.IsNullOrEmpty(action))
             {
                 if (GetString("action") == "del" && !string.IsNullOrEmpty(GetString("ids")) && GetInt("corpid") > 0)
-                    Customers.Instance.Delete(GetString("ids"), GetInt("corpid"));
+                    Customers.Instance.Delete(GetString("ids"), GetInt("corpid"),AdminID,Admin.Realname);
 
                 Customers.Instance.ReloadCustomerListByCorporationCache(GetInt("corpid"));
                 Response.Clear();

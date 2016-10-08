@@ -55,7 +55,7 @@ namespace ComOpp.BackAdmin.chance
                 if (!string.IsNullOrEmpty(starttime))
                     query.StartTime = DataConvert.SafeDate(starttime);
                 if (!string.IsNullOrEmpty(endtime))
-                    query.EndTime = DataConvert.SafeDate(endtime);
+                    query.EndTime = DataConvert.SafeDate(endtime).AddDays(1);
                 if (!Admin.Administrator && Admin.UserRole != UserRoleType.系统管理员)
                 {
                     if (CurrentPowerGroup != null && !string.IsNullOrEmpty(CurrentPowerGroup.CanviewGroupIds))

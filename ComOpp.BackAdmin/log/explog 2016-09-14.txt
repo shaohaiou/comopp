@@ -1,4 +1,4 @@
-﻿2016/8/9 15:27:53        正在中止线程。
+﻿2016/9/14 11:05:59        正在中止线程。
 Source:ComOpp.Components
 TargetSite:Void PhoneVestUpdate()
 
@@ -8,7 +8,7 @@ TargetSite:Void PhoneVestUpdate()
 
 
 ====================================
-2016/8/9 15:57:40        正在中止线程。
+2016/9/14 15:59:54        正在中止线程。
 Source:ComOpp.Components
 TargetSite:Void PhoneVestUpdate()
 

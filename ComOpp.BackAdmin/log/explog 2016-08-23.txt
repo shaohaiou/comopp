@@ -1,0 +1,10 @@
+﻿2016/8/23 15:01:57        正在中止线程。
+Source:ComOpp.Components
+TargetSite:Void PhoneVestUpdate()
+
+---- Stack Trace ----
+   ComOpp.Components.Customers.PhoneVestUpdate()
+       Customers.cs: line 0048, col 41, IL 0272
+
+
+====================================

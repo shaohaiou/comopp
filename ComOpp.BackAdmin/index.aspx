@@ -20,31 +20,32 @@
     <script type="text/javascript" src="js/common.js"></script>
     <%--<script type="text/javascript" src="js/cpcparam.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/cpccommon.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/cpcdriver.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/cpcdriver.js" charset="utf-8"></script>--%>
     <script type="text/javascript">
         if (self.location != top.location) {
             top.location.href = self.location;
         }
-        var qnviccub = null;
-        Sys.link = "http://<%=CurrentDomain %>/";
-        var Sphone = {
-            openDeviceSucc: false, //打开设备 0-失败 1-成功
-            device: false, //打开并启用 0-失败 1-成功
-            pre: "",
-            driver: "http://<%=CurrentDomain %>/att/driver.rar",
-            phone: "http://<%=CurrentDomain %>/index/common.phone",
-            auth: "http://<%=CurrentDomain %>/index/common.auth"
-        };
-        cpcxDevice.config("loader", { "pre": "", "recorddir": "" });
-        cpcxDevice.config("log.link", "http://<%=CurrentDomain %>/chance/callcenter/index/phone.call");
-    </script>--%>
+//        var qnviccub = null;
+//        Sys.link = "http://<%=CurrentDomain %>/";
+//        var Sphone = {
+//            openDeviceSucc: false, //打开设备 0-失败 1-成功
+//            device: false, //打开并启用 0-失败 1-成功
+//            pre: "",
+//            driver: "http://<%=CurrentDomain %>/att/driver.rar",
+//            phone: "http://<%=CurrentDomain %>/index/common.phone",
+//            auth: "http://<%=CurrentDomain %>/index/common.auth"
+//        };
+//        cpcxDevice.config("loader", { "pre": "", "recorddir": "" });
+//        cpcxDevice.config("log.link", "http://<%=CurrentDomain %>/chance/callcenter/index/phone.call");
+    </script>
 </head>
+<%--<body onLoad="TV_Initialize()" onUnload="TV_Disable()" class="easyui-layout">--%>
 <body class="easyui-layout">
-    <div>
+    <%--<div>
         <object id="qnviccub" type="application/x-cc301plugin" width="0" height="0">
             <param name="onload" value="pluginLoaded" />
         </object>
-    </div>
+    </div>--%>
     <div data-options="region:'north',border:false" style="height: 36px; overflow: hidden;
         background: #2BB7AA">
         <div class="header">
@@ -104,8 +105,11 @@
                             <a href="chance/followmg.aspx" target="riframe">追踪流水</a></p>
                         <%} %>
                     </dd>
-                    <!--<dt data-key="analyse/index/callcenter/connect"><i class="l icon5">
-                    </i>分析报表</dt>-->
+                    <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "报表分析"))
+                      { %>
+                    <dt data-key="analyse/archive.aspx"><i class="l icon5">
+                    </i>分析报表</dt>
+                    <%} %>
                     <%if (Admin.Administrator || Admin.UserRole == ComOpp.Components.UserRoleType.系统管理员 || CheckGroupPower(Admin.GroupPower, "话术管理"))
                       { %>
                     <dt data-key="support/talkmg.aspx"><i class="l icon6"></i>话术管理</dt>

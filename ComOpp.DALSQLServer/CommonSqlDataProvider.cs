@@ -1772,10 +1772,18 @@ namespace ComOpp.DALSQLServer
             return DataConvert.SafeInt(SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, p));
         }
 
-        public override void DeleteCustomer(string ids, int corpid)
+        public override void DeleteCustomer(string ids, int corpid, int userid, string username)
         {
-            string sql = "UPDATE ComOpp_Customer SET [DelState] = 1 WHERE [CorporationID] = @CorporationID AND [ID] IN(" + ids + ")";
-            SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql, new SqlParameter("@CorporationID",corpid));
+            string sql = "UPDATE ComOpp_Customer SET [DelState] = 1,[LastUpdateUserID]=@LastUpdateUserID,[LastUpdateUser]=@LastUpdateUser,[LastUpdateTime]=@LastUpdateTime WHERE [CorporationID] = @CorporationID AND [ID] IN(" + ids + ")";
+            SqlParameter[] p = 
+            {
+                new SqlParameter("@CorporationID",corpid),
+                new SqlParameter("@LastUpdateUserID",userid),
+                new SqlParameter("@LastUpdateUser",username),
+                new SqlParameter("@LastUpdateTime",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                new SqlParameter("@LastUpdateUserID",userid),
+            };
+            SqlHelper.ExecuteNonQuery(_con, CommandType.Text, sql,p);
         }
 
         public override int UpdateCustomerLastConnect(CustomerInfo entity)

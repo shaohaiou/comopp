@@ -72,6 +72,10 @@
     <Content Include="ajax\getdistrict.aspx" />
     <Content Include="ajax\getpowergroupbycorp.aspx" />
     <Content Include="ajax\getsearchlist.aspx" />
+    <Content Include="analyse\archive.aspx" />
+    <Content Include="analyse\finality.aspx" />
+    <Content Include="analyse\follow.aspx" />
+    <Content Include="analyse\invite.aspx" />
     <Content Include="center\desktop.aspx" />
     <Content Include="center\profile.aspx" />
     <Content Include="center\safe.aspx" />
@@ -358,6 +362,34 @@
     </Compile>
     <Compile Include="ajax\getsearchlist.aspx.designer.cs">
       <DependentUpon>getsearchlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="analyse\archive.aspx.cs">
+      <DependentUpon>archive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analyse\archive.aspx.designer.cs">
+      <DependentUpon>archive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="analyse\finality.aspx.cs">
+      <DependentUpon>finality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analyse\finality.aspx.designer.cs">
+      <DependentUpon>finality.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="analyse\follow.aspx.cs">
+      <DependentUpon>follow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analyse\follow.aspx.designer.cs">
+      <DependentUpon>follow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="analyse\invite.aspx.cs">
+      <DependentUpon>invite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analyse\invite.aspx.designer.cs">
+      <DependentUpon>invite.aspx</DependentUpon>
     </Compile>
     <Compile Include="center\desktop.aspx.cs">
       <DependentUpon>desktop.aspx</DependentUpon>
@@ -989,7 +1021,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="analyse\" />
     <Folder Include="index\" />
   </ItemGroup>
   <ItemGroup>
