@@ -471,8 +471,9 @@ namespace ComOpp.Components
                     if (LastCustomerLevelID == 0)
                     {
                         DateTime createtime = DateTime.Parse(CreateTime);
-                        if (DateTime.Now.Subtract(createtime).TotalDays <= 6) return "0";
-                        if (DateTime.Now.Subtract(createtime).TotalDays <= 7) return "1";
+                        double days = DateTime.Today.Subtract(DateTime.Parse(createtime.ToShortDateString())).TotalDays;
+                        if (days <= 6) return "0";
+                        if (days <= 7) return "1";
                         else return "2";
                     }
                     else
@@ -481,8 +482,9 @@ namespace ComOpp.Components
                         if (lastcustomerlevel != null)
                         {
                             DateTime lastconnecttime = DateTime.Parse(LastConnectTime);
-                            if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= (lastcustomerlevel.Alarmday - 1) || lastcustomerlevel.Alarmday == 0) return "0";
-                            if (DateTime.Now.Subtract(lastconnecttime).TotalDays <= lastcustomerlevel.Alarmday) return "1";
+                            double days = DateTime.Today.Subtract(DateTime.Parse(lastconnecttime.ToShortDateString())).TotalDays;
+                            if (days < lastcustomerlevel.Alarmday || lastcustomerlevel.Alarmday == 0) return "0";
+                            if (days < (lastcustomerlevel.Alarmday + 1)) return "1";
                             else return "2";
                         }
                     }
